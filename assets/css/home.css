@@ -6,7 +6,7 @@
   font-display: swap;
 }
 
-/* Personal homepage styles only; other pages keep their al-folio layouts. */
+/* Shared personal-site styles for pages that opt into .academic-home. */
 html:has(.academic-home) {
   color-scheme: light;
   background: #fff;
@@ -370,6 +370,302 @@ body:has(.academic-home) > .container[role="main"] {
   padding-top: 24px;
   border-top: 1px solid #e5e5e5;
   font-size: 15px;
+}
+
+/* Writing keeps article summaries quiet and easy to scan. */
+.writing-introduction {
+  padding: 88px 0 56px;
+}
+.writing-featured,
+.writing-archive {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 28px;
+}
+.writing-featured > h2,
+.writing-archive > h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+.writing-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  padding: 28px 0 48px;
+}
+.writing-feature h3 {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+}
+.writing-feature p {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.writing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.writing-list > li {
+  padding: 32px 0;
+}
+.writing-list > li + li {
+  border-top: 1px solid #eee;
+}
+.writing-article.has-thumbnail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  align-items: center;
+  gap: 40px;
+}
+.writing-article-copy,
+.writing-feature {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.writing-meta {
+  font-size: 12px;
+}
+.writing-article h3 {
+  margin: 12px 0 10px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+  line-height: 1.4;
+}
+.writing-feature h3 span,
+.writing-article h3 span {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 18px;
+}
+.writing-description {
+  max-width: 680px;
+  font-size: 15px;
+}
+.writing-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 16px;
+  font-size: 11px;
+}
+.writing-thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.writing-pagination {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  padding: 28px 0 48px;
+  font-size: 13px;
+}
+.writing-pagination > div:last-child {
+  text-align: right;
+}
+.writing-feature:hover h3,
+.writing-article h3 a:hover,
+.writing-tags a:hover,
+.writing-pagination a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+@media (max-width: 700px) {
+  .writing-introduction {
+    padding: 56px 0 40px;
+  }
+  .writing-article h3 {
+    font-size: 22px;
+  }
+  .writing-featured-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+  .writing-article.has-thumbnail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .writing-thumbnail {
+    max-width: 240px;
+  }
+  .writing-pagination {
+    font-size: 12px;
+    gap: 8px;
+  }
+}
+
+/* Project archive shares the homepage's image cards and spacing. */
+.projects-introduction {
+  padding: 88px 0 56px;
+}
+.projects-category {
+  padding-top: 28px;
+  border-top: 1px solid #e5e5e5;
+}
+.projects-category > h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+.projects-category > h2 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.projects-page .home-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 44px;
+}
+.projects-entry {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.projects-entry .home-project {
+  display: block;
+}
+.projects-entry .home-project-heading {
+  align-items: baseline;
+  gap: 16px;
+}
+.projects-placeholder {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-size: clamp(28px, 3.5vw, 48px);
+  letter-spacing: -1.5px;
+  text-align: center;
+}
+.projects-code {
+  margin-top: 12px;
+}
+@media (max-width: 700px) {
+  .projects-introduction {
+    padding: 56px 0 40px;
+  }
+  .projects-page .home-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
+  }
+}
+
+/* Full publication archive; reuse the homepage's bibliography components. */
+body:has(.publications-page) {
+  --global-highlight-color: #111;
+}
+.publications-introduction {
+  padding: 88px 0 48px;
+}
+.publications-search {
+  max-width: 480px;
+  margin-bottom: 48px;
+}
+.publications-search label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.publications-search #bibsearch {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 13px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  color: #111;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: none;
+}
+.publications-search #bibsearch::placeholder {
+  color: #111;
+  opacity: 1;
+}
+.publications-search #bibsearch:focus-visible {
+  border-color: #111;
+  outline: 1px solid #111;
+  outline-offset: 3px;
+}
+.publications-page ::highlight(search) {
+  color: #111;
+  background-color: #e5e5e5;
+}
+.publications-page .publications-list {
+  margin: 0 0 64px;
+}
+.publications-page h2.bibliography {
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid #e5e5e5;
+  color: #111;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  text-align: left;
+}
+.publications-list ol.bibliography {
+  margin-top: 0;
+}
+.publications-list .row > [class*="col"] {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.publications-list .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.publications-page .publications-list .links a.btn {
+  margin: 0;
+  border-color: #ddd;
+}
+.publications-list .hidden.open {
+  margin-top: 16px;
+  border: 0 !important;
+  border-radius: 4px;
+  background: #f5f5f5;
+  text-align: left;
+}
+.publications-list .hidden pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.publications-list .hidden p {
+  margin: 16px !important;
+  line-height: 1.7 !important;
+}
+@media (max-width: 700px) {
+  .publications-introduction {
+    padding: 56px 0 32px;
+  }
+  .publications-search {
+    margin-bottom: 32px;
+  }
+}
+@media (max-width: 440px) {
+  .publications-page h1 {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+  .publications-page .publications-list ol.bibliography > li > .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .publications-list .abbr:not(:has(img, video)) {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {
