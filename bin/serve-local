@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+# Prefer the existing Homebrew Ruby over macOS's system Ruby.
+if [[ -x /opt/homebrew/opt/ruby/bin/ruby ]]; then
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+elif [[ -x /usr/local/opt/ruby/bin/ruby ]]; then
+  export PATH="/usr/local/opt/ruby/bin:$PATH"
+fi
+
+export PATH="$PWD/.venv/bin:$PATH"
+export GEM_HOME="$PWD/vendor/tooling"
+export BUNDLE_PATH="$PWD/vendor/bundle"
+export BUNDLE_FROZEN=true
+
+if [[ ! -f vendor/tooling/bin/bundle ]]; then
+  echo "Local dependencies are missing. See docs/LOCAL_DEVELOPMENT.md."
+  exit 1
+fi
+
+# The template's remote demo feeds can time out and abort an otherwise local build.
+# Keep this override in an ignored directory, leaving the published config intact.
+mkdir -p .bundle
+ruby -ryaml -rdate -e '
+  config = YAML.load_file("_config.yml", permitted_classes: [Date, Time], aliases: true)
+  preview = {
+    "external_sources" => [],
+    "exclude" => Array(config["exclude"]) + ["_posts/2020-09-28-twitter.md", ".agents", ".claude", ".codex", ".venv", ".bundle", "node_modules"]
+  }
+  File.write(".bundle/local-preview.yml", preview.to_yaml)
+'
+
+exec ruby vendor/tooling/bin/bundle exec jekyll serve --config _config.yml,.bundle/local-preview.yml --host 127.0.0.1 --port 4000 --livereload --force_polling "$@"
