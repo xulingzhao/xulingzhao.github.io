@@ -23,6 +23,10 @@ Wait until the terminal shows `Server running`, then open <http://127.0.0.1:4000
 Keep that terminal open while previewing. Most content edits rebuild automatically; restart the server after editing `_config.yml`.
 The preview path follows the existing `baseurl` setting; see [the architecture guide](ARCHITECTURE.md#3-this-repos-effective-baseurl-is-al-folio).
 
+## Production URL
+
+The GitHub Pages deployment workflow adds `_config.production.yml` to build for `https://xulingzhao.github.io/` at the domain root. The local helper keeps `/al-folio/`; do not remove that path from the local preview URL.
+
 ## Stop
 
 In the terminal running the server, press **Control + C** (not Command + C).

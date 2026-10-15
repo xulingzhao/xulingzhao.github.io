@@ -1,0 +1,4 @@
+# GitHub Pages serves this personal site from the domain root.
+# Keep the /al-folio local preview configuration in _config.yml unchanged.
+url: https://xulingzhao.github.io
+baseurl: ""
