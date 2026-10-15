@@ -2,7 +2,11 @@
 
 These guides cover the `al-folio` v1.x starter and its pluginized runtime.
 
+本站维护先读 [DESIGN.md](../DESIGN.md)，已确认风格的详情页源码见 [内容参考索引](site-reference/README.md)。
+
 ## User Guides
+
+- [Personal Site Publications](PUBLICATIONS.md): add your own papers and keep template references separate from your publication list.
 
 - [Personal Site Projects](PROJECTS.md): add Applied or Personal projects, maintain the custom detail-page style, and reuse the archived template examples.
 - [Personal Site Writing](WRITING.md): add articles with the current style, browse the original examples, and reuse code, figures, citations, and interactive features.

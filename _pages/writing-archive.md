@@ -24,9 +24,10 @@ description: Browse writing by year, topic, and category.
     <a class="home-text-link" href="{{ '/blog/' | relative_url }}">← All writing</a>
     <p class="home-eyebrow">The collection</p>
     <h1 id="archive-title">Writing archive</h1>
-    <p class="home-bio">Browse by year, topic, or category.</p>
+    {% if site.posts.size > 0 %}<p class="home-bio">Browse by year, topic, or category.</p>{% endif %}
   </section>
 
+{% if site.posts.size > 0 %}
 {% assign years = site.posts | group_by_exp: 'post', 'post.date | date: "%Y"' %}
 {% assign sorted_tags = site.tags | sort %}
 {% assign sorted_categories = site.categories | sort %}
@@ -59,5 +60,8 @@ description: Browse writing by year, topic, and category.
       {% endfor %}
     </section>
 {% endfor %}
+{% else %}
+  <section class="collection-empty" aria-label="Writing status"><p>No articles yet.</p></section>
+{% endif %}
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
 </div>

@@ -23,13 +23,13 @@ display_categories: [applied, personal]
     </nav>
   </header>
 
-  <section class="projects-introduction" id="projects-content" aria-labelledby="projects-title">
+  <section class="collection-introduction" id="projects-content" aria-labelledby="projects-title">
     <p class="home-eyebrow">Ideas in practice</p>
     <h1 id="projects-title">Projects</h1>
-    <p class="home-bio">A space for making and exploring.</p>
-    <p class="home-sample-note">Two fictional case studies, illustrating the kinds of work I hope to share.</p>
+    {% if site.projects.size > 0 %}<p class="home-bio">A space for making and exploring.</p>{% endif %}
   </section>
 
+{% if site.projects.size > 0 %}
 {% assign project_categories = 'All projects' | split: ',' %}
 {% if site.enable_project_categories and page.display_categories %}
     {% assign project_categories = page.display_categories %}
@@ -68,6 +68,10 @@ display_categories: [applied, personal]
       </section>
     {% endif %}
 {% endfor %}
+
+{% else %}
+  <section class="collection-empty" aria-label="Project status"><p>No projects yet.</p></section>
+{% endif %}
 
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
 </div>

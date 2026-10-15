@@ -9,6 +9,9 @@ nav_order: 2
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
 
+{% capture publication_count %}{% bibliography_count -f publications %}{% endcapture %}
+{% assign publication_count = publication_count | plus: 0 %}
+
 <div class="academic-home publications-page">
   <a class="home-skip" href="#publications-content">Skip to content</a>
   <header class="home-header">
@@ -22,13 +25,13 @@ nav_order: 2
     </nav>
   </header>
 
-  <section class="publications-introduction" id="publications-content" aria-labelledby="publications-title">
+  <section class="collection-introduction" id="publications-content" aria-labelledby="publications-title">
     <p class="home-eyebrow">Research &amp; scholarship</p>
     <h1 id="publications-title">Publications</h1>
-    <p class="home-bio">Research, in print.</p>
-    <p class="home-sample-note">Template examples below; personal publications forthcoming.</p>
+    {% if publication_count > 0 %}<p class="home-bio">Research, in print.</p>{% endif %}
   </section>
 
+{% if publication_count > 0 %}
 {% if site.bib_search %}
   <div class="publications-search" role="search" aria-label="Filter publications">
     <label for="bibsearch">Search publications</label>
@@ -37,8 +40,13 @@ nav_order: 2
   {% endif %}
 
   <section class="home-publications publications publications-list" aria-label="Publications by year">
-    {% bibliography %}
+    {% bibliography -f publications %}
   </section>
+  {% else %}
+  <section class="collection-empty" aria-label="Publication status">
+    <p>No publications yet.</p>
+  </section>
+  {% endif %}
 
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
 </div>

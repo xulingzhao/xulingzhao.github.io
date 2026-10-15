@@ -22,12 +22,13 @@ nav_order: 4
     </nav>
   </header>
 
-  <section class="home-notes" id="notes-content" aria-labelledby="notes-title">
+  <section class="collection-introduction" id="notes-content" aria-labelledby="notes-title">
     <p class="home-eyebrow">Learning, in progress</p>
     <h1 id="notes-title">Notes</h1>
-    <p class="home-bio">Course notes, reading notes, and ideas in progress.</p>
-    <p class="home-notes-empty">Notes will appear here.</p>
+
   </section>
+
+  <section class="collection-empty" aria-label="Notes status"><p>No notes yet.</p></section>
 
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
 </div>

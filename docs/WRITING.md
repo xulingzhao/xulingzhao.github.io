@@ -6,12 +6,12 @@
 
 - `_pages/blog.md`：Writing 文章列表，保留按日期排序、精选开关和每页 5 篇的分页机制。
 - `_pages/writing-archive.md`：统一风格的年份、标签和分类索引，地址是 `/blog/archive/`。
-- `_posts/2026-10-14-a-calmer-reading-list.md`：技术文章示例，包含代码、表格、引言和图片。
-- `_posts/2026-10-13-room-for-unfinished-ideas.md`：个人思考示例，包含段落、小标题、列表和引言。
+- `docs/site-reference/writing/2026-10-14-a-calmer-reading-list.md`：技术文章示例，包含代码、表格、引言和图片。
+- `docs/site-reference/writing/2026-10-13-room-for-unfinished-ideas.md`：个人思考示例，包含段落、小标题、列表和引言。
 - `assets/css/home.css`：Writing 列表、归档、文章详情，以及其他个人页面的共同样式。
 
 两篇文章都明确标为虚构示例，不代表真实经历或已完成工作。它们使用与首页一致的五项导航。
-当前只有两篇，所以不会出现分页按钮；添加第六篇后，列表会生成下一页。
+当前没有真实文章，两个示例仅作参考，不生成网页。Writing 与归档显示 “No articles yet.”；添加第六篇真实文章后，列表会生成下一页。总约定见 [DESIGN.md](../DESIGN.md)。
 两篇均设置 `featured: false`，避免在很短的列表里重复展示；以后可把希望置顶的文章改为 `true`。
 
 ## 旧示例放在哪里
@@ -45,7 +45,7 @@
 
 ## 如何新增文章
 
-1. 在 `_posts/` 中复制最接近的新文章，文件名使用 `YYYY-MM-DD-english-slug.md`。
+1. 从 `docs/site-reference/writing/` 复制最接近的参考文章到 `_posts/`，文件名使用 `YYYY-MM-DD-english-slug.md`。
 2. 修改最上方两个 `---` 之间的配置。
 3. 正文放在 `{% capture article_body %}` 和 `{% endcapture %}` 之间，支持 Markdown。
 4. 保留后面的样式链接、页面外层、五项导航、正文渲染和页脚。
@@ -76,7 +76,7 @@ featured: false
 - `next_article` 和 `next_article_title` 是文末另一篇文章的入口；没有合适文章时，删掉这两个字段即可。
 - 不要填写 `redirect`，除非你确实希望读者离开文章详情页。
 
-换成真实内容后，删掉文章中的虚构示例提示，并同步更新 Writing 列表页的示例说明。
+换成真实内容后，删掉文章中的虚构示例提示，更新正文链接与文末下一篇文章入口；Writing 列表页会自动从空状态切换到文章列表。
 
 ## 代码、表格和图片
 

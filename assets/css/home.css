@@ -455,16 +455,6 @@ body:has(.academic-home) > .container[role="main"] {
   border-top: 1px solid #e5e5e5;
   font-size: 11px;
 }
-.home-notes {
-  min-height: 65vh;
-  padding: 88px 0;
-}
-.academic-home .home-notes-empty {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid #e5e5e5;
-  font-size: 15px;
-}
 
 /* Writing keeps article summaries quiet and easy to scan. */
 .writing-detail-introduction h1 {
@@ -907,8 +897,17 @@ body:has(.academic-home) > .container[role="main"] {
 body:has(.publications-page) {
   --global-highlight-color: #111;
 }
-.publications-introduction {
+.collection-introduction {
   padding: 88px 0 48px;
+}
+.collection-empty {
+  padding: 32px 0 96px;
+  border-top: 1px solid #e5e5e5;
+  font-size: 18px;
+}
+.academic-home .home-collection-empty {
+  margin: 28px 0 44px;
+  font-size: 16px;
 }
 .publications-search {
   max-width: 480px;
@@ -991,7 +990,7 @@ body:has(.publications-page) {
   line-height: 1.7 !important;
 }
 @media (max-width: 700px) {
-  .publications-introduction {
+  .collection-introduction {
     padding: 56px 0 32px;
   }
   .publications-search {

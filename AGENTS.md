@@ -4,6 +4,10 @@
 
 `al-folio` v1.x is a **thin Jekyll starter, not a theme**. This repo owns starter wiring, example content, docs, and cross-plugin tests. All runtime — layouts, includes, Sass, Liquid tags, filters, feature JS — lives in versioned gems published under [`al-org-dev`](https://github.com/al-org-dev).
 
+## Personal-site design agreement
+
+This checkout is Xuling Zhao’s personal site. Read [DESIGN.md](DESIGN.md) before editing its design or content. Preserve the confirmed choices, use its reference index, and update it when the user confirms a new decision or the project state changes. The user’s latest instructions take precedence.
+
 ## Route your change
 
 Find your change on the left; edit only what is on the right.

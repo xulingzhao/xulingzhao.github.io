@@ -2,11 +2,13 @@
 
 网站中的项目内容使用英文。这份指南供你维护网站时查阅，不会出现在公开网站里。
 
+当前没有真实项目，列表与首页显示 “No projects yet.”。下面两个虚构案例仅作为未来写作和详情排版参考，已移出展示集合。总约定见 [DESIGN.md](../DESIGN.md)。
+
 ## 现在的结构
 
 - `_pages/projects.md`：Projects 列表，按 Applied / Personal 分类。
-- `_projects/campus-flow.md`：Applied 虚构案例，展示有明确目标和交付要求的项目。
-- `_projects/morning-paper.md`：Personal 虚构案例，展示自己发起的工具和探索。
+- `docs/site-reference/projects/campus-flow.md`：Applied 虚构案例，展示有明确目标和交付要求的项目。
+- `docs/site-reference/projects/morning-paper.md`：Personal 虚构案例，展示自己发起的工具和探索。
 - `assets/css/home.css`：首页、列表页和新项目详情页共用的风格。
 - `assets/img/projects/`：两个案例的原创 SVG 示意图。它们不是运行截图或实测结果。
 - [project-examples/](project-examples/)：原先 project 1–9 的完整源码，已从展示集合移出；图片和依赖仍保留在原位置。
@@ -45,7 +47,7 @@
 
 ## 添加一个真正的项目
 
-1. 在 `_projects/` 中复制最接近的案例，例如把 `campus-flow.md` 复制为 `my-project.md`。
+1. 从 `docs/site-reference/projects/` 复制最接近的案例到 `_projects/`（目录不存在时先创建），例如复制为 `_projects/my-project.md`。
 2. 修改文件最上方两个 `---` 之间的配置，并修改正文。
 3. 把项目图片放进 `assets/img/projects/`，更新图片路径和说明。
 4. 保留样式链接、`.academic-home` 外层、导航和页脚，这样点击进入后仍沿用首页风格。
@@ -75,7 +77,7 @@ next_project_title: Morning Paper
 - `importance` 越小，越靠前；相同值的顺序不应依赖。首页当前展示前两个有封面的项目。
 - `img` 控制列表封面；详情页也通过 `page.img` 使用它。无封面时，列表会自动出现文字占位图；同时删掉详情页的 `<figure class="project-cover">…</figure>`，避免空图片。
 - `next_project` / `next_project_title` 控制底部另一项目的入口。没有合适项目时，可以删掉对应的第二个链接，保留 All projects。
-- 完成真实替换后，修改详情页的 “Fictional case study” 提示，以及首页、Projects 页中关于虚构案例的说明。
+- 完成真实替换后，删除详情页的虚构提示，并检查所有信息、图片说明与相关链接均对应真实项目；列表与首页会自动切换为空状态或实际内容。
 - `github` 可以选填真实仓库网址，列表会出现 View code。不要为尚不存在的成果添加下载或演示链接。
 - 想保留站内详情页时，不要设置 `redirect`。它的用途是跳过详情页前往另一个地址。
 
@@ -137,4 +139,4 @@ next_project_title: Morning Paper
 
 页面还需要 `giscus_comments: true`。评论服务有独立样式，不会仅靠 Fraunces 页面 CSS 就完全统一；当前两个示例不启用评论。
 
-以后新增项目，优先复制这两个新案例。归档文件用于参考功能写法；直接搬回 `_projects/` 会恢复旧布局、旧导航，以及示例中可能存在的跳转行为。
+以后新增项目，优先复制这两个新案例。`docs/project-examples/` 中的原版归档用于参考功能写法；直接搬回 `_projects/` 会恢复旧布局、旧导航，以及示例中可能存在的跳转行为。

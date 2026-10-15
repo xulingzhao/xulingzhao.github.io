@@ -32,13 +32,13 @@ pagination:
     </nav>
   </header>
 
-  <section class="writing-introduction" id="writing-content" aria-labelledby="writing-title">
+  <section class="collection-introduction" id="writing-content" aria-labelledby="writing-title">
     <p class="home-eyebrow">Beyond the research</p>
     <h1 id="writing-title">Writing</h1>
-    <p class="home-bio">Technical articles and personal reflections.</p>
-    <p class="home-sample-note">Two illustrative essays: a technical exploration and a personal reflection.</p>
+    {% if site.posts.size > 0 %}<p class="home-bio">Technical articles and personal reflections.</p>{% endif %}
   </section>
 
+{% if site.posts.size > 0 %}
 {% assign featured_posts = site.posts | where: 'featured', true %}
 {% assign current_page = paginator.page | default: 1 %}
 {% if current_page == 1 and featured_posts.size > 0 %}
@@ -118,6 +118,10 @@ pagination:
       <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
       <div>{% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}" rel="next">Next →</a>{% endif %}</div>
     </nav>
+{% endif %}
+
+{% else %}
+  <section class="collection-empty" aria-label="Writing status"><p>No articles yet.</p></section>
 {% endif %}
 
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
