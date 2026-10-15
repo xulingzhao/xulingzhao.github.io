@@ -12,17 +12,17 @@ name: "Lighthouse Badger"
 # DEFINE YOUR INPUTS AND TRIGGERS IN THE FOLLOWING
 ########################################################################
 
-# INPUTS as Secrets (env) for not manually triggered workflows
+# Optional manual audit settings; publishing does not depend on this job.
 env:
-  URLS: https://alshedivat.github.io/al-folio/
+  URLS: https://xulingzhao.github.io/
   # If any of the following env is blank, a default value is used instead
-  REPO_BRANCH: "${{ github.repository }} master" # target repository & branch e.g. 'dummy/mytargetrepo main'
+  REPO_BRANCH: "${{ github.repository }} main" # target repository & branch e.g. 'dummy/mytargetrepo main'
   MOBILE_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2"
   DESKTOP_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --preset=desktop --throttling.cpuSlowdownMultiplier=1"
 
 # TRIGGERS
 on:
-  page_build:
+  # Optional badge generation is manual; it is not part of site deployment.
   # schedule: # Check your schedule here => https://crontab.guru/
   #   - cron: '55 23 * * 0' # e.g. every Sunday at 23:55
   #
@@ -32,6 +32,9 @@ on:
 ########################################################################
 # THAT'S IT; YOU DON'T HAVE TO DEFINE ANYTHING IN THE FOLLOWING
 ########################################################################
+
+permissions:
+  contents: write
 
 jobs:
   lighthouse-badger-easy:
@@ -49,7 +52,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: ${{ env.REPOSITORY }}
-          token: ${{ secrets.LIGHTHOUSE_BADGER_TOKEN }}
+          token: ${{ github.token }}
           ref: ${{ env.BRANCH }}
       - uses: actions/checkout@v7
         with:

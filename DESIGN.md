@@ -94,7 +94,7 @@ bash bin/serve-local
 
 每次改动按范围验证：相关文件格式、`npm run lint:style-contract`、`git diff --check`、本地 Jekyll 构建；涉及排版时查看桌面和手机，涉及导航时检查完整点击路径。不要为普通文案修改安装整套额外工具。测试日志、截图与依赖放在已忽略的本地目录，不混入 Git 提交。
 
-正式网站目标地址为 **https://xulingzhao.github.io/**。`.github/workflows/deploy.yml` 使用 `_config.yml,_config.production.yml` 构建，后者只覆盖正式 URL 与空 baseurl；本地继续使用 `/al-folio/`。向 `main` 推送会触发部署工作流；部署结果需查看 GitHub Actions，不把本地提交或推送成功当成网站已经上线。
+正式网站目标地址为 **https://xulingzhao.github.io/**。`.github/workflows/deploy.yml` 使用 `_config.yml,_config.production.yml` 构建，后者只覆盖正式 URL 与空 baseurl；本地继续使用 `/al-folio/`。向 `main` 推送会触发部署工作流：`Deploy site` 构建并写入 `gh-pages`，然后由 Pages 发布。仓库 Settings → Pages 必须选择 **Deploy from a branch → gh-pages → /(root)**，不能选择源码 `main`。部署结果需查看这两个工作流，不把本地提交或推送成功当成网站已经上线。Lighthouse Badger 仅作为手动运行的可选工具，使用内置 token，不参与发布。
 
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
@@ -102,7 +102,7 @@ bash bin/serve-local
 
 已完成：统一首页与分页面视觉；统一项目/文章详情和 Writing 归档；个人信息与奖项；leo 标识；四栏目空状态；参考归档与维护文档。
 
-发布进度：用户已确认当前版本可作为 `main`；正式根路径配置已通过本地构建和资源链接检查，本地 `main` 与 `redesign` 同步到此发布基线。远程推送由用户在自己的终端通过 1Password SSH agent 执行，完成后仍需检查 GitHub Actions 和实际网站。
+发布进度：用户已将满意版本推送到 `main` / `redesign`，`Deploy site` 已成功构建并写入 `gh-pages`。首次 Pages 误选源码分支导致缺少主题 gem；用户已切换为 `gh-pages` 根目录。2026-10-15 的 Pages 发布已成功（run `38697059164`），正式首页返回 HTTP 200，个人信息与空状态内容已核对。日常开发仍在 `redesign`，推送使用 1Password 中的 `github-xulingzhao` SSH 密钥。
 
 等待用户提供：真实头像、论文、Applied / Personal 项目材料、技术文章/个人想法、课程或阅读笔记。后续以用户提供的信息逐项补充，并保持已经认可的风格。
 

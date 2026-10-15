@@ -27,6 +27,10 @@ The preview path follows the existing `baseurl` setting; see [the architecture g
 
 The GitHub Pages deployment workflow adds `_config.production.yml` to build for `https://xulingzhao.github.io/` at the domain root. The local helper keeps `/al-folio/`; do not remove that path from the local preview URL.
 
+The current workflow builds the site and writes the generated files to `gh-pages`. In GitHub **Settings → Pages**, select **Deploy from a branch → gh-pages → /(root)**. Do not select the source `main` branch: GitHub’s default Jekyll builder cannot load this site’s custom gems.
+
+`Deploy site` builds and uploads the static files; the separate `pages build and deployment` run publishes them. Check both when troubleshooting. Lighthouse Badger is an optional, manually triggered badge workflow; it is not required for publishing and uses the built-in GitHub token.
+
 ## Stop
 
 In the terminal running the server, press **Control + C** (not Command + C).
