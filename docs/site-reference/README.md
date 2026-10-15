@@ -12,3 +12,7 @@
 使用时复制到 `_projects/` 或 `_posts/`，改成真实内容、日期、唯一 permalink 与实际链接，再检查首页、列表、详情与归档。不要直接恢复虚构正文或指向另一虚构案例的链接。保留样式引用、`.academic-home` 外层、五项导航、Markdown capture/markdownify 结构和页脚。
 
 具体字段与功能见 [项目指南](../PROJECTS.md) 和 [Writing 指南](../WRITING.md)。Notes 尚无真实内容和专用详情模板；未来可借鉴文章正文排版，并把导航当前栏目与返回入口改为 Notes。
+
+## 资源清理说明
+
+这些源码仅供写法参考，`docs/` 整体排除构建。旧演示图片、音视频、PDF 和交互 HTML 已删除；个人风格案例的两个 SVG 图保存在 `docs/site-reference/project-images/`。复用时需要提供真实图片并更新路径。详见 [清理与恢复说明](../CLEANUP.md)。

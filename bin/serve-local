@@ -10,7 +10,6 @@ elif [[ -x /usr/local/opt/ruby/bin/ruby ]]; then
   export PATH="/usr/local/opt/ruby/bin:$PATH"
 fi
 
-export PATH="$PWD/.venv/bin:$PATH"
 export GEM_HOME="$PWD/vendor/tooling"
 export BUNDLE_PATH="$PWD/vendor/bundle"
 export BUNDLE_FROZEN=true

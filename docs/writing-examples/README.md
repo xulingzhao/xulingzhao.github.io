@@ -4,7 +4,7 @@
 `docs/` 不参与 Jekyll 输出，因此这些文件不会出现在公开 Writing 列表或搜索结果中。
 
 阅读 [Writing 维护指南](../WRITING.md)，了解新文章的添加方法和旧功能的接入区别。
-相关图片、音视频、Notebook、文献和插件仍保留；[外部文章源配置](external-sources.yml)也已单独存档。
+旧演示媒体和 Notebook 已清理，文献移入 `docs/publication-examples/`；[外部文章源配置](external-sources.yml)也已单独存档。
 
 | 原始文件                                                                        | 值得参考的内容                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -41,3 +41,7 @@
 | [2024-12-04-photo-gallery](2024-12-04-photo-gallery.md)                         | Lightbox2、PhotoSwipe、Spotlight、Venobox 多种灯箱。               |
 | [2025-03-26-plotly](2025-03-26-plotly.md)                                       | chart.plotly 与交互式线图、散点图。                                |
 | [2025-04-28-marimo](2025-04-28-marimo.md)                                       | marimo 开关、可运行 Python 区块与 Notebook 嵌入。                  |
+
+## 资源清理说明
+
+这些源码仅供写法参考，`docs/` 整体排除构建。旧演示图片、音视频、PDF 和交互 HTML 已删除；个人风格案例的两个 SVG 图保存在 `docs/site-reference/project-images/`。复用时需要提供真实图片并更新路径。详见 [清理与恢复说明](../CLEANUP.md)。

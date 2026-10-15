@@ -17,14 +17,14 @@
 ## 旧示例放在哪里
 
 原来的 **33 篇文章源码完整保留**在 [writing-examples/](writing-examples/README.md)，逐文件核对过，与搬移前完全一致。
-图片、视频、音频、Notebook 和参考文献仍在原位置。归档不是独立运行站点，里面的 Liquid 标签与资源路径仍需放回这个项目环境才能执行。
+旧图片、视频、音频和 Notebook 已清理；文献归档到 `docs/publication-examples/`。归档不是独立运行站点，里面的 Liquid 标签与资源路径仍需放回这个项目环境才能执行。
 
 模板的 Medium / Google Blog 配置也保存在 [external-sources.yml](writing-examples/external-sources.yml)。
 站点的 `external_sources` 现在为空，避免示例文章再次混入 Writing。
 以后填写自己的来源时，仍需确认抓取到的文章使用了正确布局；本地预览脚本默认不拉取外部来源。
 
 原插件生成的年份、标签和分类页使用旧模板布局。现在文章链接统一指向 `/blog/archive/` 的对应分组，
-并关闭了 `jekyll-archives.posts.enabled`，避免生成另一套旧风格页面。图书的归档配置保持原样。
+并关闭了 `jekyll-archives.posts.enabled`，避免生成另一套旧风格页面。图书集合与旧图书归档已删除。
 
 ## 示例中真正有用的内容
 
@@ -109,6 +109,8 @@ featured: false
 
 需要参考某个示例时，优先复制其中的正文写法或组件，而不是把整篇旧文章重新放回展示列表。
 例如 bibliography 示例用 `post_url` 引用了 Distill 示例；单独恢复它时，必须同步调整这个引用或恢复被引用的文章。
-Jupyter 示例依赖 nbconvert；Twitter、远程视频和图表数据等依赖网络或外部服务。原始资源没有被删除，但远程服务的可用性需要另行验证。
+Jupyter 示例需要重新添加 `jekyll-jupyter-notebook`（同时更新 Gemfile 与配置），并安装 nbconvert；Twitter、远程视频和图表数据等依赖网络或外部服务。演示媒体和本地 nbconvert 环境已清理，见 [CLEANUP.md](CLEANUP.md)。需要 Notebook 时再安装 nbconvert，并验证所用远程服务。
 
 修改 `_config.yml` 后，请停止并重新运行 `bash bin/serve-local`。正文修改通常会自动重建。
+
+新增真实文章后，把 permalink（以及实际生成的分页地址）加入 `test/site-routes.json`，构建后运行输出检查。

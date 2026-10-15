@@ -67,14 +67,14 @@ Projects 分类是已经确定的内容约定，空栏目时不必显示分类�
 | 所有个人页面的样式            | `assets/css/home.css`                                                                                           |
 | 五个主页面                    | `_pages/about.md`、`publications.md`、`projects.md`、`blog.md`、`notes.md`                                      |
 | 个人论文                      | `_bibliography/publications.bib`，目前为空；[论文维护指南](docs/PUBLICATIONS.md)                                |
-| 论文模板/引用参考             | `_bibliography/papers.bib`，保留原始数据，但不作为个人论文展示                                                  |
+| 论文模板/引用参考             | `docs/publication-examples/papers.bib`，仅供字段参考，不参与构建                                                |
 | 未来真实项目                  | `_projects/`；[项目维护指南](docs/PROJECTS.md)                                                                  |
 | 未来真实文章                  | `_posts/`；[Writing 维护指南](docs/WRITING.md)                                                                  |
 | 已确认风格的项目/文章详情参考 | [参考索引](docs/site-reference/README.md)：两个项目、两篇文章的完整源码                                         |
 | 原版 al-folio 功能示例        | [九个项目](docs/project-examples/README.md)、[33 篇文章](docs/writing-examples/README.md)                       |
 | Notes                         | 目前只有 `_pages/notes.md` 空状态；尚未建立笔记集合或详情页。收到真实材料后按内容需要扩展，并沿用本站详情风格。 |
 
-四份个人风格参考是此前为演示制作的虚构内容，已从 `_projects/`、`_posts/` 移到 `docs/site-reference/`，不生成公开详情页，不进入站点搜索、RSS 或列表。示意图保留在 `assets/img/projects/` 供参考。原版 42 份示例另行完整保留，不能直接搬回列表造成旧样式复现。
+四份个人风格参考是此前为演示制作的虚构内容，已从 `_projects/`、`_posts/` 移到 `docs/site-reference/`，不生成公开详情页，不进入站点搜索、RSS 或列表。示意图归档于 `docs/site-reference/project-images/`，不对外发布。原版 42 份示例另行完整保留，不能直接搬回列表造成旧样式复现。
 
 个人论文独立文件与项目/文章空集合会自动控制空状态；添加真实条目后沿用已有列表实现，不必另造一个首页。Notes 的内容结构则需要届时实现。新增内容时同步检查首页、列表、详情、返回链接和 Writing 归档。
 
@@ -90,15 +90,17 @@ bash bin/serve-local
 
 看到 `Server running` 后打开 **http://127.0.0.1:4000/al-folio/**。`/al-folio/` 是当前本地 baseurl，不要擅自去掉。终端保持打开；停止按 **Control + C**，下次仍运行同一命令。修改 `_config.yml` 后需要重启；一般内容修改会自动重建。
 
-环境说明、完整目录与重装方法见 [LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md)。当前使用 Homebrew Ruby、`vendor/` 中的项目依赖、`.venv/` 中的 Python 工具；启动脚本处理 OneDrive 文件监听并禁用本地外部文章抓取，不要求 Docker。
+环境说明、完整目录与重装方法见 [LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md)。当前使用 Homebrew Ruby、`vendor/` 中的项目依赖；Python 3 仅用于静态输出检查，不再需要 `.venv/` 或 nbconvert；启动脚本处理 OneDrive 文件监听并禁用本地外部文章抓取，不要求 Docker。
 
 每次改动按范围验证：相关文件格式、`npm run lint:style-contract`、`git diff --check`、本地 Jekyll 构建；涉及排版时查看桌面和手机，涉及导航时检查完整点击路径。不要为普通文案修改安装整套额外工具。测试日志、截图与依赖放在已忽略的本地目录，不混入 Git 提交。
 
-正式网站目标地址为 **https://xulingzhao.github.io/**。`.github/workflows/deploy.yml` 使用 `_config.yml,_config.production.yml` 构建，后者只覆盖正式 URL 与空 baseurl；本地继续使用 `/al-folio/`。向 `main` 推送会触发部署工作流：`Deploy site` 构建并写入 `gh-pages`，然后由 Pages 发布。仓库 Settings → Pages 必须选择 **Deploy from a branch → gh-pages → /(root)**，不能选择源码 `main`。部署结果需查看这两个工作流，不把本地提交或推送成功当成网站已经上线。Lighthouse Badger 仅作为手动运行的可选工具，使用内置 token，不参与发布。
+正式网站目标地址为 **https://xulingzhao.github.io/**。`.github/workflows/deploy.yml` 使用 `_config.yml,_config.production.yml` 构建，后者只覆盖正式 URL 与空 baseurl；本地继续使用 `/al-folio/`。向 `main` 推送会触发部署工作流：`Deploy site` 构建并写入 `gh-pages`，然后由 Pages 发布。仓库 Settings → Pages 必须选择 **Deploy from a branch → gh-pages → /(root)**，不能选择源码 `main`。部署结果需查看这两个工作流，不把本地提交或推送成功当成网站已经上线。模板专用的 Lighthouse、Docker 发布、CV 生成等任务已删除；部署只保留 `Deploy site`，其中包含格式、样式边界、公开路由和本地链接检查。
 
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
 ## 当前进度与下一步
+
+本次本地清理：删除 CV、Teaching、People、Books、News、Repositories、插件目录与下拉菜单等旧页面及其集合；删除无用演示媒体和模板专用自动化；参考资料保留于排除构建的 `docs/`。404 已沿用本站风格。新增 `test/site-routes.json` 与 `bin/check-site.py`，新建页面时须更新清单。详细边界见 [CLEANUP.md](docs/CLEANUP.md)。本地与生产配置构建均通过，输出仅含 7 个允许页面；已验证站内链接、桌面/手机显示和旧 CV 地址返回 404。目录实际占用从约 672 MiB 降至约 264 MiB（包含保留的 Git 历史与依赖），释放约 408 MiB。此次清理整理为本地 Git 提交，推送由用户执行；尚未推送或上线。
 
 已完成：统一首页与分页面视觉；统一项目/文章详情和 Writing 归档；个人信息与奖项；leo 标识；四栏目空状态；参考归档与维护文档。
 

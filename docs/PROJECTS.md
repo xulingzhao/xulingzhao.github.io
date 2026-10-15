@@ -10,8 +10,8 @@
 - `docs/site-reference/projects/campus-flow.md`：Applied 虚构案例，展示有明确目标和交付要求的项目。
 - `docs/site-reference/projects/morning-paper.md`：Personal 虚构案例，展示自己发起的工具和探索。
 - `assets/css/home.css`：首页、列表页和新项目详情页共用的风格。
-- `assets/img/projects/`：两个案例的原创 SVG 示意图。它们不是运行截图或实测结果。
-- [project-examples/](project-examples/)：原先 project 1–9 的完整源码，已从展示集合移出；图片和依赖仍保留在原位置。
+- `docs/site-reference/project-images/`：两个案例的原创 SVG 示意图（不公开发布）。它们不是运行截图或实测结果。
+- [project-examples/](project-examples/)：原先 project 1–9 的完整源码，已从展示集合移出；旧演示媒体已清理，恢复说明见 [CLEANUP.md](CLEANUP.md)。
 
 `docs/` 已在 `_config.yml` 的 `exclude` 中，因此这些参考资料不会生成网站页面，也不会进入项目卡片或搜索索引。
 两个案例均明确标为虚构，没有真实合作方、成绩、用户数据或已上线产品的含义。
@@ -100,11 +100,11 @@ next_project_title: Morning Paper
 ```html
 <div class="project-gallery">
   <figure class="project-gallery-wide">
-    <img src="{{ '/assets/img/6.jpg' | relative_url }}" alt="First image" loading="lazy" />
+    <img src="{{ '/assets/img/projects/main-view.jpg' | relative_url }}" alt="First image" loading="lazy" />
     <figcaption>The main view.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/assets/img/11.jpg' | relative_url }}" alt="Second image" loading="lazy" />
+    <img src="{{ '/assets/img/projects/detail-view.jpg' | relative_url }}" alt="Second image" loading="lazy" />
     <figcaption>A closer detail.</figcaption>
   </figure>
 </div>
@@ -119,13 +119,13 @@ next_project_title: Morning Paper
 新案例使用 `layout: default` 并自行组织正文，不再套用旧的 `page` 布局。
 因此，**只复制 `related_publications: true` 或 `giscus_comments: true` 并不会自动添加相关区域**。
 
-引用可继续使用已有的 Jekyll Scholar 功能，例如正文中的 `{% cite einstein1950meaning %}`。
-要显示文末参考文献，需要在详情页中明确加入以下内容；文献数据仍放在 `_bibliography/papers.bib`。
+引用可继续使用已有的 Jekyll Scholar 功能，例如正文中的 `{% cite reference-key --file references %}`。
+要显示文末参考文献，需要在详情页中明确加入以下内容；他人的参考文献放在 `_bibliography/references.bib`，与自己的 `publications.bib` 分开。
 
 ```html
 <section class="home-publications publications" aria-labelledby="project-references">
   <h2 id="project-references">References</h2>
-  {% bibliography --cited_in_order %}
+  {% bibliography --file references --cited_in_order %}
 </section>
 ```
 
@@ -140,3 +140,5 @@ next_project_title: Morning Paper
 页面还需要 `giscus_comments: true`。评论服务有独立样式，不会仅靠 Fraunces 页面 CSS 就完全统一；当前两个示例不启用评论。
 
 以后新增项目，优先复制这两个新案例。`docs/project-examples/` 中的原版归档用于参考功能写法；直接搬回 `_projects/` 会恢复旧布局、旧导航，以及示例中可能存在的跳转行为。
+
+新增真实详情页后，把它的 permalink 加入 `test/site-routes.json`，构建后运行输出检查。归档示意图如确需使用，应复制到 `assets/img/projects/` 并更新说明；原案例中的资源路径不会自动恢复。

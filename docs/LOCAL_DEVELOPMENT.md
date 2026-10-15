@@ -1,46 +1,24 @@
 # Local preview on this Mac
 
-This checkout uses al-folio v1, with its layouts and styles supplied by versioned Ruby gems.
-The local helper uses Homebrew Ruby, project-local gems in `vendor/`, and Python tools in `.venv/`.
-These dependency directories are ignored by Git. Docker is not required for this setup.
+This site uses Homebrew Ruby and project-local gems in `vendor/`. Node.js provides formatting checks; Python 3 runs the output audit using only its standard library. Docker and a Python virtual environment are not needed.
 
-The template blog posts and feed configuration are archived under `docs/writing-examples/`.
-The helper keeps external feeds disabled in an ignored `.bundle/local-preview.yml` override, so future feed configuration will not require network requests during local preview.
-Source content and deployment settings are not rewritten by the helper.
-The override also excludes agent configuration directories to avoid duplicate file-watcher warnings from their symlinks.
-The helper uses polling for reliable change detection in OneDrive and excludes local dependency directories from the file watcher.
+## Start and stop
 
-## Start
-
-Open Terminal and run:
+From the project directory:
 
 ```bash
-cd "/Users/orion/Library/CloudStorage/OneDrive-个人/文档/Los/Project/website/my-website"
 bash bin/serve-local
 ```
 
-Wait until the terminal shows `Server running`, then open <http://127.0.0.1:4000/al-folio/>.
-Keep that terminal open while previewing. Most content edits rebuild automatically; restart the server after editing `_config.yml`.
-The preview path follows the existing `baseurl` setting; see [the architecture guide](ARCHITECTURE.md#3-this-repos-effective-baseurl-is-al-folio).
+When `Server running` appears, open **<http://127.0.0.1:4000/al-folio/>**.
+Keep the terminal open. Press **Control + C** to stop. Run the same command next time.
+Most content changes rebuild automatically; restart after changing `_config.yml`.
 
-## Production URL
-
-The GitHub Pages deployment workflow adds `_config.production.yml` to build for `https://xulingzhao.github.io/` at the domain root. The local helper keeps `/al-folio/`; do not remove that path from the local preview URL.
-
-The current workflow builds the site and writes the generated files to `gh-pages`. In GitHub **Settings → Pages**, select **Deploy from a branch → gh-pages → /(root)**. Do not select the source `main` branch: GitHub’s default Jekyll builder cannot load this site’s custom gems.
-
-`Deploy site` builds and uploads the static files; the separate `pages build and deployment` run publishes them. Check both when troubleshooting. Lighthouse Badger is an optional, manually triggered badge workflow; it is not required for publishing and uses the built-in GitHub token.
-
-## Stop
-
-In the terminal running the server, press **Control + C** (not Command + C).
-Run the same start command next time. Starting or stopping the preview does not publish the site.
+The helper selects Homebrew Ruby, uses ignored local dependencies, disables external feeds for preview, and uses polling for OneDrive file watching. It writes `.bundle/local-preview.yml`; it does not rewrite tracked configuration.
 
 ## Reinstall dependencies if needed
 
-The first-time installation uses the existing Homebrew Ruby, Node.js, Python 3, and Xcode Command Line Tools.
-ImageMagick generates the template's responsive images; nbconvert renders its example notebooks.
-Run these commands from the project directory only if the local dependencies have been removed:
+Use an existing Homebrew Ruby, Node.js, Python 3, and Xcode Command Line Tools. ImageMagick is needed when adding responsive images.
 
 ```bash
 brew install imagemagick
@@ -50,8 +28,43 @@ export GEM_HOME="$PWD/vendor/tooling"
 export BUNDLE_PATH="$PWD/vendor/bundle"
 export BUNDLE_FROZEN=true
 ruby vendor/tooling/bin/bundle install
-python3 -m venv .venv
-.venv/bin/python -m pip install nbconvert
+npm ci
 ```
 
-The frozen setting keeps the committed dependency versions unchanged. For Docker and other setup options, see [INSTALL.md](INSTALL.md).
+On Intel Macs, use `/usr/local/opt/ruby/bin` instead. Keep the committed lockfiles unchanged during routine installation.
+
+## Build and verify
+
+From the project directory, set the Ruby environment:
+
+```bash
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export GEM_HOME="$PWD/vendor/tooling"
+export BUNDLE_PATH="$PWD/vendor/bundle"
+export BUNDLE_FROZEN=true
+```
+
+For local output, stop the preview server before rebuilding `_site`:
+
+```bash
+ruby vendor/tooling/bin/bundle exec jekyll build
+python3 bin/check-site.py _site --baseurl /al-folio
+```
+
+For a separate production check:
+
+```bash
+JEKYLL_ENV=production ruby vendor/tooling/bin/bundle exec jekyll build --config _config.yml,_config.production.yml --destination .bundle/production-check
+python3 bin/check-site.py .bundle/production-check --baseurl ""
+```
+
+Also run `npm run lint:prettier`, `npm run lint:style-contract`, and `git diff --check`.
+The route manifest is `test/site-routes.json`: add intended new detail pages or pagination URLs when adding real content. Unexpected HTML and broken local links fail the check.
+
+## Publishing
+
+The production configuration serves **<https://xulingzhao.github.io/>** at the domain root; local preview retains `/al-folio/`.
+Pushing approved changes to `main` triggers `Deploy site`, which builds and checks output, then replaces the generated files in `gh-pages`.
+
+In GitHub **Settings → Pages**, use **Deploy from a branch → gh-pages → /(root)**. Do not select source `main`: GitHub’s default Jekyll builder cannot load this site's custom gems.
+Check both `Deploy site` and the subsequent `pages build and deployment` run. Removed routes disappear from the live website only after successful deployment; the historical Actions failures remain historical records.
