@@ -30,47 +30,6 @@ a:focus {
   -webkit-font-smoothing: antialiased !important;
 }
 
-
-#logout {
-  font-family: "Proxima Nova", sans-serif;
-  color: #303030;
-  background: transparent;
-  background-color: transparent;
-  border: 2px solid #e5e5e5;
-  font-weight: normal;
-  box-shadow: none;
-  text-shadow: none;
-  border-radius: 3px;
-  margin-right: 10px;
-  padding: 2px 7px;
-}
-
-
-#logout:hover {
-  color: #ef5c00;
-  background-color: transparent;
-  background: transparent;
-  border: 2px solid #ef5c00;
-  background-image: none;
-  box-shadow: none !important;
-  border-radius: 3px;
-}
-
-
-#logout:focus,
-#logout.focus,
-#logout:active,
-#logout.active,
-.open > .dropdown-toggle#logout {
-  color: #1c1c1c;
-  background-color: #303030;
-  background: #303030;
-  border-color: #303030;
-  background-image: none;
-  box-shadow: none !important;
-  border-radius: 2px;
-}
-
 body > #header {
   background: #ffffff;
   background-color: #ffffff;
@@ -240,8 +199,7 @@ div#notebook {
 
 .btn:hover,
 .btn:active:hover,
-.btn.active:hover,
-.open > .dropdown-toggle.btn:hover {
+.btn.active:hover {
   color: #ef5c00;
   border: 2px solid #e0e0e0;
   background-color: #e0e0e0;
@@ -256,9 +214,7 @@ div#notebook {
 .btn:active:focus,
 .btn.active:focus,
 .btn:active.focus,
-.btn.active.focus,
-.open > .dropdown-toggle.btn:focus,
-.open > .dropdown-toggle.btn.focus {
+.btn.active.focus {
   color: #ef5c00;
   border: 2px solid #e0e0e0;
   background-color: #e0e0e0 !important;
@@ -283,14 +239,6 @@ div#notebook {
   background-color: #ffccac !important;
   border-color: #ffccac !important;
   transition: 200ms ease !important;
-}
-
-
-.btn-sm {
-  font-size: inherit;
-  font-weight: normal;
-  height: inherit;
-  line-height: inherit;
 }
 
 button.close {
@@ -338,13 +286,6 @@ div.modal-footer > button:hover {
   border-radius: 1px;
   background-clip: padding-box;
   outline: none;
-}
-
-.modal-content h4 {
-  font-family: sans-serif;
-  font-size: 16pt;
-  color: #303030;
-  padding: 5px;
 }
 
 .modal-body {
@@ -438,8 +379,6 @@ li,
 h1,
 h2,
 h3,
-h4,
-h6,
 pre,
 code,
 form,
@@ -447,7 +386,6 @@ input,
 button,
 textarea,
 p,
-blockquote,
 th,
 td,
 span,
@@ -493,7 +431,7 @@ kbd {
   white-space: pre-wrap;
 }
 
-.well code,
+
 code {
   font-family: monospace, monospace;
   font-size: 11pt !important;
@@ -526,13 +464,6 @@ pre {
   border-radius: 2px;
 }
 
-hr {
-  margin-top: 8px;
-  margin-bottom: 10px;
-  border: 0;
-  border-top: 1px solid #126dce;
-}
-
 #complete > select > option:hover {
   background: #d4d4d4;
   background-color: #d4d4d4;
@@ -548,54 +479,6 @@ hr {
   -webkit-box-shadow: none;
   box-shadow: none;
   z-index: 10;
-}
-
-mark,
-.mark {
-  background-color: #ffffff;
-  color: #353535;
-  padding: 0.15em;
-}
-
-#toc a,
-.toc {
-  color: #303030 !important;
-  font-size: 11pt !important;
-}
-
-#toc li > span:hover {
-  background-color: #d4d4d4 !important;
-}
-
-#toc a:hover,
-.toc {
-  color: #1c1c1c !important;
-  font-size: 11pt !important;
-}
-
-input.raw_input {
-  font-family: monospace, monospace;
-  font-size: 11pt !important;
-  color: #303030;
-  background-color: #efefef;
-  border-color: #ececec;
-  background: #ececec;
-  width: auto;
-  vertical-align: baseline;
-  padding: 0em 0.25em;
-  margin: 0em 0.25em;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-
-.well {
-  background-color: #e4e4e4;
-  border: 1px solid #e4e4e4;
-  color: #303030;
-  border-radius: 2px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 
