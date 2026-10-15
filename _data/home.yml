@@ -1,8 +1,30 @@
-introduction: A place for my research, projects, and ideas.
+# The public site is in English; retain the native name here for reference.
+native_name: 赵旭令
+wordmark: leo
+introduction: >-
+  I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.
+next_step: >-
+  I will pursue a direct-entry PhD at the College of Computer Science and Technology,
+  Zhejiang University.
 
 # Add your own image path, for example /assets/img/xuling-zhao.jpg.
 portrait:
 
-# Entries use institution, degree, and years. Leave empty until the details are ready.
-education: []
-research_interests: []
+education:
+  - institution: Nanjing University
+    degree: Undergraduate in Artificial Intelligence
+    years: Sep. 2023 – Jun. 2027 (expected)
+
+research_interests:
+  - Machine learning
+  - Diffusion language models
+
+# Add one entry per award. The homepage sorts by year, newest first, with no item limit.
+# Add an optional distinction (e.g. First Class) only once confirmed.
+awards:
+  - year: 2025
+    title: People's Scholarship
+    institution: Nanjing University
+  - year: 2024
+    title: People's Scholarship
+    institution: Nanjing University

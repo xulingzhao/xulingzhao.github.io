@@ -12,7 +12,7 @@ nav_order: 4
 <div class="academic-home">
   <a class="home-skip" href="#notes-content">Skip to content</a>
   <header class="home-header">
-    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Xuling Zhao, home">xz.</a>
+    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home">{{ site.data.home.wordmark }}</a>
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>

@@ -22,7 +22,7 @@ pagination:
 <div class="academic-home writing-page">
   <a class="home-skip" href="#writing-content">Skip to content</a>
   <header class="home-header">
-    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Xuling Zhao, home">xz.</a>
+    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home">{{ site.data.home.wordmark }}</a>
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
@@ -36,7 +36,7 @@ pagination:
     <p class="home-eyebrow">Beyond the research</p>
     <h1 id="writing-title">Writing</h1>
     <p class="home-bio">Technical articles and personal reflections.</p>
-    <p class="home-sample-note">Template examples below; personal writing forthcoming.</p>
+    <p class="home-sample-note">Two illustrative essays: a technical exploration and a personal reflection.</p>
   </section>
 
 {% assign featured_posts = site.posts | where: 'featured', true %}
@@ -62,7 +62,10 @@ pagination:
 {% endif %}
 
   <section class="writing-archive" aria-labelledby="articles-title">
-    <h2 id="articles-title">Articles</h2>
+    <div class="home-section-heading">
+      <h2 id="articles-title">Articles</h2>
+      <a class="home-text-link" href="{{ '/blog/archive/' | relative_url }}">Browse the archive <span aria-hidden="true">↗</span></a>
+    </div>
     {% if page.pagination.enabled %}
       {% assign postlist = paginator.posts %}
     {% else %}
@@ -89,12 +92,12 @@ pagination:
               <h3><a href="{{ post_link }}">{{ post.title }} <span aria-hidden="true">↗</span></a></h3>
               <p class="writing-description">{{ post.description }}</p>
               <div class="writing-tags">
-                <a href="{{ year | prepend: '/blog/' | relative_url }}">{{ year }}</a>
+                <a href="{{ '/blog/archive/' | relative_url }}#year-{{ year }}">{{ year }}</a>
                 {% for tag in post.tags %}
-                  <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">#{{ tag }}</a>
+                  <a href="{{ '/blog/archive/' | relative_url }}#tag-{{ tag | slugify }}">#{{ tag }}</a>
                 {% endfor %}
                 {% for category in post.categories %}
-                  <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
+                  <a href="{{ '/blog/archive/' | relative_url }}#category-{{ category | slugify }}">{{ category }}</a>
                 {% endfor %}
               </div>
             </div>

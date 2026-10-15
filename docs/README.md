@@ -4,6 +4,8 @@ These guides cover the `al-folio` v1.x starter and its pluginized runtime.
 
 ## User Guides
 
+- [Personal Site Projects](PROJECTS.md): add Applied or Personal projects, maintain the custom detail-page style, and reuse the archived template examples.
+- [Personal Site Writing](WRITING.md): add articles with the current style, browse the original examples, and reuse code, figures, citations, and interactive features.
 - [Quick Start](QUICKSTART.md): create a site from the template and get it live quickly.
 - [Installing and Deploying](INSTALL.md): Docker, local setup, GitHub Pages, Netlify, and upgrade guidance.
 - [Customizing](CUSTOMIZE.md): content, CVs, publications, layouts, local overrides, and feature configuration.

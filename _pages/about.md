@@ -2,7 +2,7 @@
 layout: default
 title: about
 permalink: /
-description: The personal academic website of Xuling Zhao. Research, projects, and ideas.
+description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing University, exploring machine learning and diffusion language models.
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
@@ -10,7 +10,7 @@ description: The personal academic website of Xuling Zhao. Research, projects, a
 <div class="academic-home">
   <a class="home-skip" href="#home-introduction">Skip to content</a>
   <header class="home-header">
-    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Xuling Zhao, home">xz.</a>
+    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home">{{ site.data.home.wordmark }}</a>
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}" aria-current="page">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
@@ -22,10 +22,21 @@ description: The personal academic website of Xuling Zhao. Research, projects, a
 
   <section class="home-introduction" id="home-introduction" aria-labelledby="home-name">
     <div class="home-introduction-copy">
-      <p class="home-eyebrow">A personal academic website</p>
       <h1 id="home-name">{{ site.first_name }} {{ site.last_name }}</h1>
-      <p class="home-bio">{{ site.data.home.introduction }}</p>
-      <a class="home-text-link" href="#selected-work">Explore my work <span aria-hidden="true">↗</span></a>
+      <p class="home-position">{{ site.data.home.introduction }}</p>
+      <div class="home-biography">
+        <p>{{ site.data.home.next_step }}</p>
+      </div>
+      <dl class="home-contact" aria-label="Contact and profiles">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.data.socials.email }}">{{ site.data.socials.email }}</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/{{ site.data.socials.github_username }}">{{ site.data.socials.github_username }} <span aria-hidden="true">↗</span></a></dd>
+        </div>
+      </dl>
     </div>
     <figure class="home-portrait">
       {% if site.data.home.portrait %}
@@ -37,26 +48,53 @@ description: The personal academic website of Xuling Zhao. Research, projects, a
     </figure>
   </section>
 
-  <section class="home-background" aria-label="Academic background">
-    <div>
-      <h2>Education</h2>
+  <section class="home-section home-profile-section" aria-labelledby="home-education-title">
+    <div class="home-section-heading"><h2 id="home-education-title">Education</h2></div>
+    <div class="home-education-list">
       {% if site.data.home.education.size > 0 %}
         {% for entry in site.data.home.education %}
-          <p class="home-background-detail"><strong>{{ entry.institution }}</strong><br>{{ entry.degree }} · {{ entry.years }}</p>
+          <div class="home-education-entry">
+            <h3>{{ entry.institution }}</h3>
+            <p>{{ entry.degree }}</p>
+            <p class="home-education-years">{{ entry.years }}</p>
+          </div>
         {% endfor %}
       {% else %}
         <p>Details forthcoming.</p>
       {% endif %}
     </div>
-    <div>
-      <h2>Research interests</h2>
+  </section>
+
+  <section class="home-section home-profile-section" aria-labelledby="home-interests-title">
+    <div class="home-section-heading"><h2 id="home-interests-title">Research interests</h2></div>
       {% if site.data.home.research_interests.size > 0 %}
-        <p>{{ site.data.home.research_interests | join: ' · ' }}</p>
+        <ul class="home-interests">
+          {% for interest in site.data.home.research_interests %}<li>{{ interest }}</li>{% endfor %}
+        </ul>
       {% else %}
         <p>Details forthcoming.</p>
       {% endif %}
-    </div>
   </section>
+
+{% if site.data.home.awards.size > 0 %}
+  <section class="home-section home-awards" aria-labelledby="home-awards-title">
+    <div class="home-section-heading">
+      <h2 id="home-awards-title">Honors &amp; Awards</h2>
+    </div>
+    <ul class="home-award-list">
+      {% assign awards = site.data.home.awards | sort: 'year' | reverse %}
+      {% for award in awards %}
+        <li>
+          <span class="home-award-year">{{ award.year }}</span>
+          <div>
+            <h3>{{ award.title }}{% if award.distinction %} · {{ award.distinction }}{% endif %}</h3>
+            <p>{{ award.institution }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 
   <section class="home-section" id="selected-work" aria-labelledby="home-publications-title">
     <div class="home-section-heading">
@@ -80,13 +118,13 @@ description: The personal academic website of Xuling Zhao. Research, projects, a
       </div>
       <a class="home-text-link" href="{{ '/projects/' | relative_url }}">All projects <span aria-hidden="true">↗</span></a>
     </div>
-    <p class="home-sample-note">Template examples below; personal projects forthcoming.</p>
+    <p class="home-sample-note">Fictional case studies below; real projects forthcoming.</p>
     <div class="home-project-grid">
       {% assign home_projects = site.projects | where_exp: 'project', 'project.img' | sort: 'importance' %}
       {% for project in home_projects limit: 2 %}
         <a class="home-project" href="{{ project.url | relative_url }}">
           <div class="home-project-image"><img src="{{ project.img | relative_url }}" alt="" loading="lazy" width="640" height="400"></div>
-          <div class="home-project-heading"><h3>{{ project.title | capitalize }}</h3><span aria-hidden="true">↗</span></div>
+          <div class="home-project-heading"><h3>{{ project.title }}</h3><span aria-hidden="true">↗</span></div>
           <p>{{ project.description }}</p>
         </a>
       {% endfor %}

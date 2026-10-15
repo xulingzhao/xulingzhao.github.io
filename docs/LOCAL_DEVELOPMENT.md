@@ -4,9 +4,9 @@ This checkout uses al-folio v1, with its layouts and styles supplied by versione
 The local helper uses Homebrew Ruby, project-local gems in `vendor/`, and Python tools in `.venv/`.
 These dependency directories are ignored by Git. Docker is not required for this setup.
 
-The helper skips the template's external demo articles from Medium and Google Blog, and the Twitter demo post.
-These examples require remote requests that failed on this Mac and aborted the build.
-It generates an ignored `.bundle/local-preview.yml` override; `_config.yml`, source content, publications, projects, and styles stay unchanged.
+The template blog posts and feed configuration are archived under `docs/writing-examples/`.
+The helper keeps external feeds disabled in an ignored `.bundle/local-preview.yml` override, so future feed configuration will not require network requests during local preview.
+Source content and deployment settings are not rewritten by the helper.
 The override also excludes agent configuration directories to avoid duplicate file-watcher warnings from their symlinks.
 The helper uses polling for reliable change detection in OneDrive and excludes local dependency directories from the file watcher.
 
