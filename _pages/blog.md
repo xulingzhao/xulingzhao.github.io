@@ -84,6 +84,7 @@ pagination:
         {% else %}
           {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
         {% endif %}
+        {% assign read_time = post.reading_time | default: read_time %}
         {% assign year = post.date | date: '%Y' %}
         <li>
           <article class="writing-article{% if post.thumbnail %} has-thumbnail{% endif %}">

@@ -5,7 +5,7 @@ Read [DESIGN.md](DESIGN.md) before editing. This is a personal site derived from
 ## Workflow
 
 - Check the branch and working tree. Develop on `redesign`; preserve unrelated changes. Commit, merge, push, or publish only within the current task’s authorization.
-- Keep the confirmed design and five-item navigation. Public content is English. Do not restore template biographies or fictional work as personal achievements.
+- Keep the confirmed design and five-item navigation. The interface and biography stay English; blog posts may be Chinese or bilingual. Keep Fraunces Italic for Latin text and upright LXGW WenKai for Chinese. Do not restore template biographies or fictional work as personal achievements.
 - Keep references under `docs/`, excluded from the site. Follow the [maintenance guides](docs/README.md) for actual content.
 - Update DESIGN.md when decisions or progress change. Do not duplicate detailed instructions across files.
 - When adding or removing a public HTML page, update `test/site-routes.json`. Do not weaken the route check to accept every generated page.

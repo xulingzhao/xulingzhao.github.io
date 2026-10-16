@@ -1,6 +1,6 @@
 # Xuling Zhao / leo — 网站设计与维护约定
 
-最后更新：2026-10-15。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站内容为英文，维护文档与协作沟通可用中文。
+最后更新：2026-10-16。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站界面和个人介绍保持英文，博客允许中文及中英文混排；维护文档与协作沟通可用中文。
 
 ## 接手时先做什么
 
@@ -12,7 +12,7 @@
 ## 已确认的视觉风格
 
 - 简约、克制、专业，有艺术感；用户喜欢 Apple 风格的干净布局。保持清晰层级与留白，避免装饰堆积、拥挤卡片和彩色文字。
-- **所有文字使用 Fraunces Italic**，包括导航、正文、标题和代码。用户明确不需要另配易读的系统字体。当前本地字体为 `assets/fonts/fraunces-italic.ttf`，CSS 名称为 `Fraunces Home`。
+- **英文继续使用 Fraunces Italic，中文使用霞鹜文楷正体**，覆盖标题、正文和代码中的相应字符。英文不替换为系统字体。Fraunces 文件为 `assets/fonts/fraunces-italic.ttf`，CSS 名称为 `Fraunces Home`；霞鹜文楷使用 `assets/fonts/lxgw-wenkai/` 中自托管的常规字重 WOFF2 分包，版本与许可见 [字体说明](docs/FONTS.md)。按字符自动回退，禁止浏览器将中文合成为斜体，不需要逐字添加 span。
 - 白色背景、黑色文字与链接；使用浅灰分隔线及必要的浅灰底。**图片保持原始颜色，不做全站灰度处理。**
 - 左上角标识为小写 **leo**，无句点；由 `_data/home.yml` 的 `wordmark` 控制。大标题和学术署名仍为 **Xuling Zhao**，不要自行改成 Leo Zhao。
 - 浏览器图标为苹果 emoji **🍎**。保留当前 favicon 设置。
@@ -28,15 +28,15 @@
 
 始终使用五项导航，顺序为 **About / Publications / Projects / Writing / Notes**。列表、详情、标签和归档页保持同一字体、导航与视觉风格；不要让点击详情后恢复旧模板的 CV、Teaching 等导航。
 
-| 栏目         | 地址             | 内容与当前状态                                                                                  |
-| ------------ | ---------------- | ----------------------------------------------------------------------------------------------- |
-| About        | `/`              | 已填写简介、教育、研究兴趣、奖项、联系方式；保留论文、项目和 Writing 入口，当前显示暂无内容。   |
-| Publications | `/publications/` | 当前没有论文，显示 “No publications yet.”；没有论文时隐藏搜索框。                               |
-| Projects     | `/projects/`     | 当前没有可展示的真实项目，显示 “No projects yet.”；未来沿用 Applied / Personal 分类与图文详情。 |
-| Writing      | `/blog/`         | 当前没有真实文章，显示 “No articles yet.”；未来收录技术文章和个人想法。                         |
-| Notes        | `/notes/`        | 当前没有笔记，显示 “No notes yet.”；未来收录课程、阅读和学习笔记。                              |
+| 栏目         | 地址             | 内容与当前状态                                                                                                    |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| About        | `/`              | 已填写简介、教育、研究兴趣、奖项、联系方式；保留论文、项目和 Writing 入口；论文、项目暂无内容，Writing 已有文章。 |
+| Publications | `/publications/` | 当前没有论文，显示 “No publications yet.”；没有论文时隐藏搜索框。                                                 |
+| Projects     | `/projects/`     | 当前没有可展示的真实项目，显示 “No projects yet.”；未来沿用 Applied / Personal 分类与图文详情。                   |
+| Writing      | `/blog/`         | 已有《理解 KL 散度》（2026-10-15）；收录技术文章和个人想法。                                                      |
+| Notes        | `/notes/`        | 当前没有笔记，显示 “No notes yet.”；未来收录课程、阅读和学习笔记。                                                |
 
-空状态保留栏目标题、简短英文提示、导航与页脚，不放模板卡片、虚构成果、空分类列表或无用途的搜索。Writing 的 `/blog/archive/` 已保留同风格实现，空状态下不显示空年份/标签/分类列表。
+空状态保留栏目标题、简短英文提示、导航与页脚，不放模板卡片、虚构成果、空分类列表或无用途的搜索。Writing 的 `/blog/archive/` 使用同风格实现，已有文章时显示真实年份、标签与分类。
 
 Projects 分类是已经确定的内容约定，空栏目时不必显示分类：
 
@@ -49,7 +49,7 @@ Projects 分类是已经确定的内容约定，空栏目时不必显示分类�
 
 ## 已确认的个人信息
 
-- 学术姓名：Xuling Zhao；中文姓名：赵旭令（仅维护资料，公开页面保持英文）；英文昵称/标识：leo。
+- 学术姓名：Xuling Zhao；中文姓名：赵旭令（仅维护资料，个人介绍页面保持英文）；英文昵称/标识：leo。
 - 当前本科：南京大学人工智能学院。首页表述：**I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.**
 - Education：Nanjing University；Undergraduate in Artificial Intelligence；Sep. 2023 – Jun. 2027 (expected)。
 - 后续去向：已确定赴浙江大学计算机学院攻读直博。首页表述：**I will pursue a direct-entry PhD at the College of Computer Science and Technology, Zhejiang University.** 未提供入学时间，不编造，也不写成已经在读。
@@ -100,7 +100,11 @@ bash bin/serve-local
 
 ## 当前进度与下一步
 
-本次本地清理：删除 CV、Teaching、People、Books、News、Repositories、插件目录与下拉菜单等旧页面及其集合；删除无用演示媒体和模板专用自动化；参考资料保留于排除构建的 `docs/`。404 已沿用本站风格。新增 `test/site-routes.json` 与 `bin/check-site.py`，新建页面时须更新清单。详细边界见 [CLEANUP.md](docs/CLEANUP.md)。本地与生产配置构建均通过，输出仅含 7 个允许页面；已验证站内链接、桌面/手机显示和旧 CV 地址返回 404。目录实际占用从约 672 MiB 降至约 264 MiB（包含保留的 Git 历史与依赖），释放约 408 MiB。此次清理整理为本地 Git 提交，推送由用户执行；尚未推送或上线。
+2026-10-16：根据用户提供的原稿加入首篇真实 Writing 文章《理解 KL 散度》，发布日期 2026-10-15，地址 `/blog/2026/understanding-kl-divergence/`。保留正文与公式，添加六节目录及附录跳转，沿用霞鹜文楷 / Fraunces；数学公式保留 MathJax 专用数学字体，避免符号损坏。文章有 29 个独立公式块，长公式在手机上局部横向滚动。预计阅读时间 18 分钟，列表与详情统一使用 `reading_time`。公开页面清单增至 8 页；本地、生产构建、公式完整性及桌面/手机阅读路径已检查。文章与中文字体修改一并整理为本地提交并合并到 `main`，等待用户推送；尚未发布本次修改。
+
+2026-10-16：加入霞鹜文楷中文字体支持，英文 Fraunces Italic 和既有布局保持不变；博客允许中文及混排。没有新增公开示例文章。已验证桌面/手机混排和实际字体，英文首页排版不变且不下载中文字体分包；本地与生产输出检查通过。字体修改与首篇文章一并纳入本次本地发布准备，推送由用户执行。
+
+本次本地清理：删除 CV、Teaching、People、Books、News、Repositories、插件目录与下拉菜单等旧页面及其集合；删除无用演示媒体和模板专用自动化；参考资料保留于排除构建的 `docs/`。404 已沿用本站风格。新增 `test/site-routes.json` 与 `bin/check-site.py`，新建页面时须更新清单。详细边界见 [CLEANUP.md](docs/CLEANUP.md)。本地与生产配置构建均通过，输出仅含 7 个允许页面；已验证站内链接、桌面/手机显示和旧 CV 地址返回 404。目录实际占用从约 672 MiB 降至约 264 MiB（包含保留的 Git 历史与依赖），释放约 408 MiB。此前清理已提交为 `233c5b9` 并合并到本地 `main`；线上发布状态以 GitHub Actions 为准。
 
 已完成：统一首页与分页面视觉；统一项目/文章详情和 Writing 归档；个人信息与奖项；leo 标识；四栏目空状态；参考归档与维护文档。
 

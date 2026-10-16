@@ -6,6 +6,7 @@ Start with [DESIGN.md](../DESIGN.md) for confirmed design and content decisions.
 - [Publications](PUBLICATIONS.md)
 - [Projects](PROJECTS.md)
 - [Writing](WRITING.md)
+- [Chinese and English fonts](FONTS.md)
 - [Cleanup, storage, and recovery](CLEANUP.md)
 - [Personal-style project and article references](site-reference/README.md)
 - [Original project examples](project-examples/README.md)

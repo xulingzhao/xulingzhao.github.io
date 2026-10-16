@@ -6,3 +6,6 @@ docs/project-examples/
 docs/writing-examples/
 docs/site-reference/
 docs/publication-examples/
+
+# Vendored font CSS and licenses are preserved from the versioned package.
+assets/fonts/lxgw-wenkai/

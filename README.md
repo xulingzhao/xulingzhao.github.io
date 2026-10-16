@@ -5,7 +5,7 @@ Source for my personal academic website: **<https://xulingzhao.github.io/>**.
 I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.
 My interests include machine learning and diffusion language models.
 
-The site uses a minimal white background, black text, Fraunces Italic, and full-color images.
+The site uses a minimal white background, black text, Fraunces Italic for English, LXGW WenKai for Chinese, and full-color images.
 It is built with al-folio v1 and Jekyll, with its runtime supplied by pinned Ruby gems.
 
 ## Pages
@@ -13,7 +13,7 @@ It is built with al-folio v1 and Jekyll, with its runtime supplied by pinned Rub
 - **About** — biography, education, research interests, awards, and contact details.
 - **Publications** — reserved for my publications; currently empty.
 - **Projects** — future Applied and Personal projects; currently empty.
-- **Writing** — technical articles and personal reflections; currently empty.
+- **Writing** — technical articles and personal reflections, starting with “理解 KL 散度” (October 15, 2026).
 - **Notes** — course, reading, and study notes; currently empty.
 
 Template biographies, papers, projects, and posts are not presented as my work.
@@ -71,4 +71,4 @@ Unused demo media, template-only automation, and old generated previews have bee
 See [cleanup notes](docs/CLEANUP.md) for retained files, recovery, and safe local cleanup.
 
 Built on [al-folio](https://github.com/alshedivat/al-folio) and [Jekyll](https://jekyllrb.com/), hosted on GitHub Pages.
-The original code license is retained in [LICENSE](LICENSE); Fraunces includes its [font license](assets/fonts/Fraunces-OFL.txt).
+The original code license is retained in [LICENSE](LICENSE). Font sources, versions, and licenses are documented in [FONTS.md](docs/FONTS.md).
