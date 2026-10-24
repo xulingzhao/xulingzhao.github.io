@@ -8,8 +8,6 @@ nav_order: 3
 display_categories: [applied, personal]
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home projects-page">
   <a class="home-skip" href="#projects-content">Skip to content</a>
   <header class="home-header">

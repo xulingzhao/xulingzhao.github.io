@@ -17,8 +17,6 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home writing-page">
   <a class="home-skip" href="#writing-content">Skip to content</a>
   <header class="home-header">

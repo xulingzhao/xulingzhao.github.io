@@ -9,7 +9,7 @@
 - `_pages/projects.md`：Projects 列表，按 Applied / Personal 分类。
 - `docs/site-reference/projects/campus-flow.md`：Applied 虚构案例，展示有明确目标和交付要求的项目。
 - `docs/site-reference/projects/morning-paper.md`：Personal 虚构案例，展示自己发起的工具和探索。
-- `assets/css/home.css`：首页、列表页和新项目详情页共用的风格。
+- `assets/css/home.css`：首页、列表页和新项目详情页共用的风格。它由 `assets/css/main.scss` 内联进 `<head>` 中的 `main.css`；新页面不要再写 `home.css` 的 `<link>`（site-reference 源码里的这一行是旧写法，复制时删掉）。
 - `docs/site-reference/project-images/`：两个案例的原创 SVG 示意图（不公开发布）。它们不是运行截图或实测结果。
 - [project-examples/](project-examples/)：原先 project 1–9 的完整源码，已从展示集合移出；旧演示媒体已清理，恢复说明见 [CLEANUP.md](CLEANUP.md)。
 

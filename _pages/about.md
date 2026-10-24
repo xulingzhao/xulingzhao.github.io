@@ -5,8 +5,6 @@ permalink: /
 description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing University, exploring machine learning and diffusion language models.
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home">
   <a class="home-skip" href="#home-introduction">Skip to content</a>
   <header class="home-header">

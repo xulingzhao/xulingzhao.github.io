@@ -9,3 +9,6 @@ docs/publication-examples/
 
 # Vendored font CSS and licenses are preserved from the versioned package.
 assets/fonts/lxgw-wenkai/
+
+# Theme main.scss override; its Liquid include of home.css is not valid SCSS for Prettier.
+assets/css/main.scss

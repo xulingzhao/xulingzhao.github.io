@@ -5,8 +5,6 @@ permalink: /blog/archive/
 description: Browse writing by year, topic, and category.
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home writing-page writing-archive-page">
   <a class="home-skip" href="#archive-content">Skip to content</a>
   <header class="home-header">

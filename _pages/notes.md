@@ -7,8 +7,6 @@ nav: true
 nav_order: 4
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home">
   <a class="home-skip" href="#notes-content">Skip to content</a>
   <header class="home-header">

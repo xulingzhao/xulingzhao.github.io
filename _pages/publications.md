@@ -7,8 +7,6 @@ nav: true
 nav_order: 2
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 {% capture publication_count %}{% bibliography_count -f publications %}{% endcapture %}
 {% assign publication_count = publication_count | plus: 0 %}
 

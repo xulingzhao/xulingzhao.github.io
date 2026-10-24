@@ -352,8 +352,6 @@ $$
 
 {% endcapture %}
 
-<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
-
 <div class="academic-home writing-detail-page writing-math-page">
   <a class="home-skip" href="#article-content">Skip to content</a>
   <header class="home-header">

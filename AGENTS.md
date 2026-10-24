@@ -12,7 +12,7 @@ Read [DESIGN.md](DESIGN.md) before editing. This is a personal site derived from
 
 ## Runtime ownership
 
-al-folio v1 uses versioned gems for layouts, includes, Sass, Liquid tags, and feature scripts. The personal page wrappers are in `_pages/`; shared styling is in `assets/css/home.css`.
+al-folio v1 uses versioned gems for layouts, includes, Sass, Liquid tags, and feature scripts. The personal page wrappers are in `_pages/`; shared styling is in `assets/css/home.css`, which `assets/css/main.scss` (a copy of the al_folio_core v1.0.15 file plus one include) inlines into the `<head>` stylesheet. Pages must not link `home.css` themselves; a late link makes the al-folio navbar flash before the personal layout. Re-sync `main.scss` when upgrading al_folio_core.
 
 Do not add `_layouts/`, `_includes/`, `_sass/`, `_scripts/`, `assets/tailwind/`, `assets/webfonts/`, or a local Tailwind build pipeline. The style-contract check enforces this boundary. See [ARCHITECTURE.md](docs/ARCHITECTURE.md) and [BOUNDARIES.md](docs/BOUNDARIES.md) for plugin ownership and the distinction between starter and personal-site overrides.
 

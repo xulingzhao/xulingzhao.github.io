@@ -8,7 +8,7 @@
 - `_pages/writing-archive.md`：统一风格的年份、标签和分类索引，地址是 `/blog/archive/`。
 - `docs/site-reference/writing/2026-10-14-a-calmer-reading-list.md`：技术文章示例，包含代码、表格、引言和图片。
 - `docs/site-reference/writing/2026-10-13-room-for-unfinished-ideas.md`：个人思考示例，包含段落、小标题、列表和引言。
-- `assets/css/home.css`：Writing 列表、归档、文章详情，以及其他个人页面的共同样式。
+- `assets/css/home.css`：Writing 列表、归档、文章详情，以及其他个人页面的共同样式。它由 `assets/css/main.scss` 内联进 `<head>` 中的 `main.css`；新页面不要再写 `home.css` 的 `<link>`（site-reference 源码里的这一行是旧写法，复制时删掉）。
 
 两篇文章都明确标为虚构示例，不代表真实经历或已完成工作。它们使用与首页一致的五项导航。
 当前首篇真实文章为《理解 KL 散度》（2026-10-15），源文件 `_posts/2026-10-15-understanding-kl-divergence.md`。两个虚构示例仅作参考，不生成网页；添加第六篇真实文章后，列表会生成下一页。总约定见 [DESIGN.md](../DESIGN.md)。
