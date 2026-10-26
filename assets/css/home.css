@@ -534,7 +534,9 @@ body:has(.academic-home) > .container[role="main"] {
 .writing-detail-introduction .home-bio {
   max-width: 640px;
 }
-:is( .writing-prose) {
+/* Not :is(): PurgeCSS drops a bare :is(a,b) rule once Sass minifies it. */
+
+.writing-prose {
   max-width: 700px;
   margin: 56px auto 64px;
   overflow-wrap: anywhere;
@@ -570,7 +572,8 @@ body:has(.academic-home) > .container[role="main"] {
   .writing-detail-introduction {
     padding: 40px 0 32px;
   }
-  :is( .writing-prose) {
+  
+  .writing-prose {
     margin: 40px auto 48px;
     font-size: 16px;
   }
