@@ -92,18 +92,28 @@ featured: false
 新文章使用 `layout: default`，不再经过原来的 `post` 或 `distill` 布局。
 因此，原 `post` 布局负责的内容不会仅因复制开关而自动出现：
 
-| 原开关 / 功能                | 新文章中的处理                                                                                                        |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `toc.beginning`              | 原 `post` 布局的自动目录不再执行。简单文章可以直接添加指向小标题的链接；复杂目录需单独接入。                          |
-| `related_publications: true` | 正文可以使用 `cite`，但文末文献列表需明确加入 bibliography 区域，写法见[项目指南](PROJECTS.md#引用评论和旧布局开关)。 |
-| `citation: true`             | 文章自身的引用信息由旧布局插入，新页面需要明确接入 `citation.liquid` 并检查样式。                                     |
-| `related_posts`              | 不自动插入原模板的推荐列表；当前用可编辑的 `next_article` 入口代替。                                                  |
-| Giscus / Disqus              | 还需要自己的服务配置、插件和页面中的评论组件；参见[项目指南](PROJECTS.md#引用评论和旧布局开关)。                      |
-| `layout: distill`            | 会重新使用 Distill 的布局和导航，不能只改一个开关就沿用当前详情风格。                                                 |
-| `toc.sidebar`                | 会改变 `default` 布局的网格结构，可能压窄当前页面；需要针对该布局重新检查导航和宽度。                                 |
+| 原开关 / 功能                | 新文章中的处理                                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `toc.beginning`              | 原 `post` 布局的自动目录不再执行。简单文章可以直接添加指向小标题的链接；复杂目录需单独接入。                                          |
+| `related_publications: true` | 正文可以使用 `cite`，但文末文献列表需明确加入 bibliography 区域，写法见[项目指南](PROJECTS.md#引用评论和旧布局开关)。                 |
+| `citation: true`             | 文章自身的引用信息由旧布局插入，新页面需要明确接入 `citation.liquid` 并检查样式。                                                     |
+| `related_posts`              | 不自动插入原模板的推荐列表；当前用可编辑的 `next_article` 入口代替。                                                                  |
+| Giscus 评论                  | 已接入。新文章把《理解 KL 散度》中 `</article>` 与 `writing-detail-navigation` 之间的 `writing-comments` 整段复制过来即可，无需改动。 |
+| `layout: distill`            | 会重新使用 Distill 的布局和导航，不能只改一个开关就沿用当前详情风格。                                                                 |
+| `toc.sidebar`                | 会改变 `default` 布局的网格结构，可能压窄当前页面；需要针对该布局重新检查导航和宽度。                                                 |
 
 其他图表、代码、图片和数学功能由各 gem 的资源与开关控制。参考[架构说明](ARCHITECTURE.md#failure-modes-that-produce-no-error-message)，确认插件已加载、站点已启用、文章已选择所需功能。
 第三方图表或评论组件可能有自己的字体和颜色，不能假定网站 CSS 会自动统一它们。
+
+### 评论（giscus）
+
+评论存放在仓库 `xulingzhao/xulingzhao.github.io` 的 Discussions → **Comments** 分类（Announcement 类型，只有 giscus 能新开讨论）。配置在 `_config.yml` 的 `giscus` 段。
+
+- 每篇文章以自己的 `page.url`（不含 baseurl）作为讨论标识（`mapping: specific`），因此本地预览与线上对应同一讨论，修改标题不会丢失评论。不要改动已发布文章的 `permalink`，否则旧评论会与文章脱钩。
+- 界面语言随文章：`lang` 含 `zh` 时为中文，否则为英文。
+- 线上使用本站主题 `assets/giscus/theme.css`（白底、黑色按钮、Fraunces 与霞鹜文楷）。它放在 `assets/css/` 之外，避免被 PurgeCSS 删去选择器。本地预览走 http，giscus 无法加载该文件，因此本地显示 giscus 默认浅色主题，属正常现象。
+- 本地预览中发表的评论会写入真实的 Discussions，测试时注意。
+- 评论需读者有 GitHub 账号；giscus.app 在中国大陆偶尔加载慢，只影响评论区。
 
 ## 原示例恢复与依赖
 

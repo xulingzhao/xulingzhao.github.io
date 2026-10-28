@@ -405,6 +405,15 @@ $$
 
   </article>
 
+{% if site.giscus.repo %}
+{% comment %} giscus comments. Local previews are served over http, where giscus cannot load the site's own theme, so they fall back to its light theme. {% endcomment %}
+{% if site.url contains 'localhost' or site.url contains '127.0.0.1' %}{% assign giscus_theme = 'light' %}{% else %}{% capture giscus_theme %}{{ '/assets/giscus/theme.css' | absolute_url }}{% endcapture %}{% endif %}
+  <section class="writing-comments" aria-labelledby="comments-title">
+    <h2 id="comments-title">Comments</h2>
+    <script src="https://giscus.app/client.js" data-repo="{{ site.giscus.repo }}" data-repo-id="{{ site.giscus.repo_id }}" data-category="{{ site.giscus.category }}" data-category-id="{{ site.giscus.category_id }}" data-mapping="specific" data-term="{{ page.url }}" data-strict="{{ site.giscus.strict }}" data-reactions-enabled="{{ site.giscus.reactions_enabled }}" data-emit-metadata="{{ site.giscus.emit_metadata }}" data-input-position="{{ site.giscus.input_position }}" data-theme="{{ giscus_theme }}" data-lang="{% if page.lang contains 'zh' %}zh-CN{% else %}en{% endif %}" data-loading="lazy" crossorigin="anonymous" async></script>
+  </section>
+  {% endif %}
+
   <nav class="writing-detail-navigation" aria-label="More writing">
     <a class="home-text-link" href="{{ '/blog/' | relative_url }}">← All writing</a>
     {% if page.next_article %}<a class="home-text-link" href="{{ page.next_article | relative_url }}">{{ page.next_article_title }} <span aria-hidden="true">↗</span></a>{% endif %}
