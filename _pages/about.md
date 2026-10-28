@@ -46,6 +46,21 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     </figure>
   </section>
 
+{% if site.data.home.news.size > 0 %}
+  <section class="home-section home-news" aria-labelledby="home-news-title">
+    <div class="home-section-heading"><h2 id="home-news-title">News</h2></div>
+    <ul class="home-news-list">
+      {% assign news = site.data.home.news | sort: 'date' | reverse %}
+      {% for item in news %}
+        <li>
+          <time class="home-news-date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: '%b %Y' }}</time>
+          <p>{{ item.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
   <section class="home-section home-profile-section" aria-labelledby="home-education-title">
     <div class="home-section-heading"><h2 id="home-education-title">Education</h2></div>
     <div class="home-education-list">
@@ -54,6 +69,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
           <div class="home-education-entry">
             <h3>{{ entry.institution }}</h3>
             <p>{{ entry.degree }}</p>
+            {% if entry.group %}<p class="home-education-group">{{ entry.group }}</p>{% endif %}
             <p class="home-education-years">{{ entry.years }}</p>
           </div>
         {% endfor %}
@@ -93,55 +109,6 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     </ul>
   </section>
   {% endif %}
-
-{% capture publication_count %}{% bibliography_count -f publications %}{% endcapture %}
-{% assign publication_count = publication_count | plus: 0 %}
-
-  <section class="home-section" id="selected-work" aria-labelledby="home-publications-title">
-    <div class="home-section-heading">
-      <div>
-        <p class="home-eyebrow">Research</p>
-        <h2 id="home-publications-title">Publications</h2>
-      </div>
-      <a class="home-text-link" href="{{ '/publications/' | relative_url }}">View publications <span aria-hidden="true">↗</span></a>
-    </div>
-    {% if publication_count > 0 %}
-    <div class="home-publications publications">
-      {% bibliography -f publications --group_by none --max 2 %}
-    </div>
-    {% else %}
-    <p class="home-collection-empty">No publications yet.</p>
-    {% endif %}
-  </section>
-
-  <section class="home-section" aria-labelledby="home-projects-title">
-    <div class="home-section-heading">
-      <div>
-        <p class="home-eyebrow">Ideas in practice</p>
-        <h2 id="home-projects-title">Projects</h2>
-      </div>
-      <a class="home-text-link" href="{{ '/projects/' | relative_url }}">View projects <span aria-hidden="true">↗</span></a>
-    </div>
-    {% if site.projects.size > 0 %}
-    <div class="home-project-grid">
-      {% assign home_projects = site.projects | where_exp: 'project', 'project.img' | sort: 'importance' %}
-      {% for project in home_projects limit: 2 %}
-        <a class="home-project" href="{{ project.url | relative_url }}">
-          <div class="home-project-image"><img src="{{ project.img | relative_url }}" alt="" loading="lazy" width="640" height="400"></div>
-          <div class="home-project-heading"><h3>{{ project.title }}</h3><span aria-hidden="true">↗</span></div>
-          <p>{{ project.description }}</p>
-        </a>
-      {% endfor %}
-    </div>
-    {% else %}
-    <p class="home-collection-empty">No projects yet.</p>
-    {% endif %}
-  </section>
-
-  <section class="home-writing" aria-labelledby="home-writing-title">
-    <div><h2 id="home-writing-title">Writing</h2><p>{% if site.posts.size > 0 %}Technical articles and personal reflections.{% else %}No articles yet.{% endif %}</p></div>
-    <a class="home-text-link" href="{{ '/blog/' | relative_url }}">View writing <span aria-hidden="true">↗</span></a>
-  </section>
 
   <footer class="home-footer"><span>© {{ site.time | date: '%Y' }} Xuling Zhao</span><span>Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a></span></footer>
 </div>

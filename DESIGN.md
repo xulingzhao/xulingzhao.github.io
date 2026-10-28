@@ -1,6 +1,6 @@
 # Xuling Zhao / leo — 网站设计与维护约定
 
-最后更新：2026-10-26。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站界面和个人介绍保持英文，博客允许中文及中英文混排；维护文档与协作沟通可用中文。
+最后更新：2026-10-28。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站界面和个人介绍保持英文，博客允许中文及中英文混排；维护文档与协作沟通可用中文。
 
 ## 接手时先做什么
 
@@ -22,19 +22,21 @@
 - Education 与 Research interests 上下独立成节；不能为了两列布局强行并排。区块标题、学校、专业、日期有明确字号层级。
 - 研究兴趣直接列出，不添加 “Currently exploring” 等多余说明。
 - Honors & Awards 保留独立、可扩展的完整区块，不因目前只有两条就缩成小角落。
+- 首页顺序：简介 → News → Education → Research interests → Honors & Awards。News 与奖项共用“日期列 + 内容”网格（桌面 90px、手机 64px），两节正文左缘对齐；News 按日期倒序，显示月份与年份。
+- 首页暂不放 Publications / Projects / Writing 导引，避免喧宾夺主；等有几个代表项目后再考虑恢复。导航仍保留五项。
 - 头像尚未提供，当前使用 XZ 占位与 “Portrait forthcoming”。它与 leo 页首标识用途不同；不要擅自生成或替换为他人照片。
 
 ## 栏目结构与内容边界
 
 始终使用五项导航，顺序为 **About / Publications / Projects / Writing / Notes**。列表、详情、标签和归档页保持同一字体、导航与视觉风格；不要让点击详情后恢复旧模板的 CV、Teaching 等导航。
 
-| 栏目         | 地址             | 内容与当前状态                                                                                                    |
-| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| About        | `/`              | 已填写简介、教育、研究兴趣、奖项、联系方式；保留论文、项目和 Writing 入口；论文、项目暂无内容，Writing 已有文章。 |
-| Publications | `/publications/` | 当前没有论文，显示 “No publications yet.”；没有论文时隐藏搜索框。                                                 |
-| Projects     | `/projects/`     | 当前没有可展示的真实项目，显示 “No projects yet.”；未来沿用 Applied / Personal 分类与图文详情。                   |
-| Writing      | `/blog/`         | 已有《理解 KL 散度》（2026-10-15）；收录技术文章和个人想法。                                                      |
-| Notes        | `/notes/`        | 当前没有笔记，显示 “No notes yet.”；未来收录课程、阅读和学习笔记。                                                |
+| 栏目         | 地址             | 内容与当前状态                                                                                      |
+| ------------ | ---------------- | --------------------------------------------------------------------------------------------------- |
+| About        | `/`              | 已填写简介、News、教育、研究兴趣、奖项、联系方式；暂不放论文、项目和 Writing 导引（通过导航进入）。 |
+| Publications | `/publications/` | 当前没有论文，显示 “No publications yet.”；没有论文时隐藏搜索框。                                   |
+| Projects     | `/projects/`     | 当前没有可展示的真实项目，显示 “No projects yet.”；未来沿用 Applied / Personal 分类与图文详情。     |
+| Writing      | `/blog/`         | 已有《理解 KL 散度》（2026-10-15）；收录技术文章和个人想法。                                        |
+| Notes        | `/notes/`        | 当前没有笔记，显示 “No notes yet.”；未来收录课程、阅读和学习笔记。                                  |
 
 空状态保留栏目标题、简短英文提示、导航与页脚，不放模板卡片、虚构成果、空分类列表或无用途的搜索。Writing 的 `/blog/archive/` 使用同风格实现，已有文章时显示真实年份、标签与分类。
 
@@ -51,14 +53,15 @@ Projects 分类是已经确定的内容约定，空栏目时不必显示分类�
 
 - 学术姓名：Xuling Zhao；中文姓名：赵旭令（仅维护资料，个人介绍页面保持英文）；英文昵称/标识：leo。
 - 当前本科：南京大学人工智能学院。首页表述：**I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.**
-- Education：Nanjing University；Undergraduate in Artificial Intelligence；Sep. 2023 – Jun. 2027 (expected)。
-- 后续去向：已确定赴浙江大学计算机学院攻读直博。首页表述：**I will pursue a direct-entry PhD at the College of Computer Science and Technology, Zhejiang University.** 未提供入学时间，不编造，也不写成已经在读。
+- Education（新在前）：Zhejiang University；Direct-entry PhD, College of Computer Science and Technology；Incoming。Nanjing University；Undergraduate in Artificial Intelligence；LAMDA8 Group（用户在 LAMDA 8 组做过工作）；Sep. 2023 – Jun. 2027 (expected)。
+- News：Sep 2026，Admitted to the direct-entry PhD program at the College of Computer Science and Technology, Zhejiang University.（月份由用户确认）。
+- 后续去向：已确定赴浙江大学计算机学院攻读直博。首页表述：**I will pursue a direct-entry PhD at the College of Computer Science and Technology, Zhejiang University.** 未提供入学时间，Education 中显示 Incoming；不编造，也不写成已经在读。
 - 研究兴趣：Machine learning；Diffusion language models。尚未确定更窄的方向，不擅自恢复 optimization 等旧草案表述。
 - 奖项：2025、2024 年 People's Scholarship，Nanjing University；用户明确暂时不写等级。按年份倒序，可继续增加条目。
 - Email：xl.zhao2035@gmail.com。
 - GitHub：https://github.com/xulingzhao。
 
-个人信息源在 `_data/home.yml`、`_data/socials.yml`；基本站点元信息在 `_config.yml`。优先更新数据，避免在多处硬编码同一信息。
+个人信息源（含 Education、News、奖项）在 `_data/home.yml`、`_data/socials.yml`；基本站点元信息在 `_config.yml`。优先更新数据，避免在多处硬编码同一信息。
 
 ## 文件与参考入口
 
@@ -99,6 +102,8 @@ bash bin/serve-local
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
 ## 当前进度与下一步
+
+2026-10-28：首页新增 News 区块（首条为浙大直博录取，Sep 2026），Education 增加 Zhejiang University 与 LAMDA8 Group，移除首页的 Publications / Projects / Writing 导引及其专用样式（`.home-writing`、`.home-collection-empty`）。手机端奖项年份列由 52px 调为 64px，与 News 对齐。生产构建（含 PurgeCSS）与站点检查通过，桌面/手机截图已检查。
 
 2026-10-26：GitHub 将 `ubuntu-latest` 切换到 Ubuntu 26.04 后，该系统不提供 Ruby 3.3.5，`Deploy site` 因此失败；部署工作流已固定为 `ubuntu-24.04`。另发现 `home.css` 并入 `main.css` 后，Sass 压缩出的单独 `:is(a,b)` 规则会被 PurgeCSS 整条删除，导致文章正文宽度和段距丢失；已改写为普通选择器列表。`home.css` 中不要再写单独的 `:is(...) {}` 规则（`:is(...) h2` 这类带后代的不受影响）。经过 PurgeCSS 的生产构建与线上 8 个页面在桌面和手机宽度下对比一致（手机文章页仅 36 个抗锯齿像素差异）。
 

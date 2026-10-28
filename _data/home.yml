@@ -10,10 +10,20 @@ next_step: >-
 # Add your own image path, for example /assets/img/xuling-zhao.jpg.
 portrait:
 
+# Newest first. `group` is optional; `years` stays "Incoming" until a start date is confirmed.
 education:
+  - institution: Zhejiang University
+    degree: Direct-entry PhD, College of Computer Science and Technology
+    years: Incoming
   - institution: Nanjing University
     degree: Undergraduate in Artificial Intelligence
+    group: LAMDA8 Group
     years: Sep. 2023 – Jun. 2027 (expected)
+
+# One entry per update. The homepage sorts by date, newest first, and shows the month and year.
+news:
+  - date: 2026-09-01
+    text: Admitted to the direct-entry PhD program at the College of Computer Science and Technology, Zhejiang University.
 
 research_interests:
   - Machine learning

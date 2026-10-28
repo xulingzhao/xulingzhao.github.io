@@ -251,6 +251,9 @@ body:has(.academic-home) > .container[role="main"] {
   margin-top: 6px;
   font-size: 15px;
 }
+.home-education-entry .home-education-group {
+  margin-top: 4px;
+}
 .home-education-entry .home-education-years {
   margin-top: 12px;
   font-size: 13px;
@@ -291,9 +294,45 @@ body:has(.academic-home) > .container[role="main"] {
   margin-top: 8px;
   font-size: 14px;
 }
+/* News shares the awards grid so dates and text line up across both sections. */
+.home-news-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 32px;
+}
+.home-news-list > li {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 28px;
+  align-items: baseline;
+  padding: 24px 0;
+}
+.home-news-list > li + li {
+  border-top: 1px solid #eee;
+}
+.home-news-date {
+  font-size: 15px;
+  white-space: nowrap;
+}
+.home-news-list p {
+  max-width: 640px;
+  font-size: 19px;
+  line-height: 1.55;
+  letter-spacing: -0.2px;
+}
 @media (max-width: 700px) {
+  .home-news-list > li {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 18px;
+  }
+  .home-news-date {
+    font-size: 13px;
+  }
+  .home-news-list p {
+    font-size: 17px;
+  }
   .home-award-list > li {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: 64px minmax(0, 1fr);
     gap: 18px;
   }
   .home-award-list h3 {
@@ -430,25 +469,6 @@ body:has(.academic-home) > .container[role="main"] {
   letter-spacing: -0.3px;
 }
 .home-project p {
-  font-size: 13px;
-}
-.home-writing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 44px 0;
-  border-top: 1px solid #e5e5e5;
-}
-.home-writing h2 {
-  margin-bottom: 8px;
-  font-family: "Fraunces Home", "LXGW WenKai", Georgia, serif;
-  font-size: 30px;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.7px;
-}
-.home-writing p {
   font-size: 13px;
 }
 .home-footer {
@@ -912,10 +932,6 @@ body:has(.publications-page) {
   border-top: 1px solid #e5e5e5;
   font-size: 18px;
 }
-.academic-home .home-collection-empty {
-  margin: 28px 0 44px;
-  font-size: 16px;
-}
 .publications-search {
   max-width: 480px;
   margin-bottom: 48px;
@@ -1112,8 +1128,7 @@ body:has(.publications-page) {
   .home-project-grid {
     grid-template-columns: 1fr;
   }
-  .home-section-heading,
-  .home-writing {
+  .home-section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
