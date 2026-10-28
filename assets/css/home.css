@@ -118,7 +118,7 @@ body:has(.academic-home) > .container[role="main"] {
 }
 .home-introduction {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 208px;
+  grid-template-columns: minmax(0, 1fr) 240px;
   align-items: center;
   gap: 72px;
   padding: 88px 0;
@@ -198,6 +198,11 @@ body:has(.academic-home) > .container[role="main"] {
   font-weight: 500;
   text-underline-offset: 5px;
 }
+.writing-archive-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
 .home-text-link span {
   font-size: 18px;
 }
@@ -205,21 +210,12 @@ body:has(.academic-home) > .container[role="main"] {
   position: relative;
   align-self: center;
 }
-.home-portrait img,
-.home-portrait-placeholder {
-  width: 208px;
-  height: 248px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-.home-portrait-placeholder {
-  display: grid;
-  place-items: center;
-  background: #f3f3f1;
-  font-family: "Fraunces Home", "LXGW WenKai", Georgia, serif;
-  font-size: 60px;
-  font-style: italic;
-  letter-spacing: -4px;
+/* The avatar has a transparent background and stands directly on the page. */
+.home-portrait img {
+  display: block;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
 }
 .home-portrait figcaption {
   position: absolute;
@@ -250,18 +246,22 @@ body:has(.academic-home) > .container[role="main"] {
   margin-top: 6px;
   font-size: 15px;
 }
+.home-education-entry .home-education-group {
+  margin-top: 4px;
+}
+.home-education-entry .home-education-interest {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.home-education-interest span {
+  margin-right: 10px;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
 .home-education-entry .home-education-years {
   margin-top: 12px;
   font-size: 13px;
-}
-.home-interests {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-  font-size: 19px;
-}
-.home-interests li + li {
-  margin-top: 8px;
 }
 .home-award-list {
   list-style: none;
@@ -290,9 +290,45 @@ body:has(.academic-home) > .container[role="main"] {
   margin-top: 8px;
   font-size: 14px;
 }
+/* News shares the awards grid so dates and text line up across both sections. */
+.home-news-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 32px;
+}
+.home-news-list > li {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 28px;
+  align-items: baseline;
+  padding: 24px 0;
+}
+.home-news-list > li + li {
+  border-top: 1px solid #eee;
+}
+.home-news-date {
+  font-size: 15px;
+  white-space: nowrap;
+}
+.home-news-list p {
+  max-width: 640px;
+  font-size: 19px;
+  line-height: 1.55;
+  letter-spacing: -0.2px;
+}
 @media (max-width: 700px) {
+  .home-news-list > li {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 18px;
+  }
+  .home-news-date {
+    font-size: 13px;
+  }
+  .home-news-list p {
+    font-size: 17px;
+  }
   .home-award-list > li {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: 64px minmax(0, 1fr);
     gap: 18px;
   }
   .home-award-list h3 {
@@ -315,25 +351,6 @@ body:has(.academic-home) > .container[role="main"] {
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -1.2px;
-}
-.home-writing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 44px 0;
-  border-top: 1px solid #e5e5e5;
-}
-.home-writing h2 {
-  margin-bottom: 8px;
-  font-family: "Fraunces Home", "LXGW WenKai", Georgia, serif;
-  font-size: 30px;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.7px;
-}
-.home-writing p {
-  font-size: 13px;
 }
 .home-footer {
   display: flex;
@@ -596,10 +613,6 @@ body:has(.publications-page) {
   border-top: 1px solid #e5e5e5;
   font-size: 18px;
 }
-.academic-home .home-collection-empty {
-  margin: 28px 0 44px;
-  font-size: 16px;
-}
 .publications-page ::highlight(search) {
   color: #111;
   background-color: #e5e5e5;
@@ -649,12 +662,9 @@ body:has(.publications-page) {
   .home-portrait {
     grid-row: 1;
   }
-  .home-portrait img,
-  .home-portrait-placeholder {
-    width: 76px;
-    height: 90px;
-    font-size: 30px;
-    letter-spacing: -2px;
+  .home-portrait img {
+    height: 200px;
+    margin: 0;
   }
   .home-portrait figcaption {
     top: 34px;
@@ -702,8 +712,7 @@ body:has(.publications-page) {
     gap: 8px;
     font-size: 12px;
   }
-  .home-section-heading,
-  .home-writing {
+  .home-section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
@@ -801,4 +810,201 @@ body:has(.publications-page) {
 
 .writing-math-page .writing-prose :is(th, td):not(:first-child) {
   text-align: right;
+}
+
+/* ---------------------------------------------------------------------------
+   Finishing touches: one apple-red accent (never on text) and quiet motion.
+   Everything below is decorative; content stays readable without it.
+   --------------------------------------------------------------------------- */
+.academic-home {
+  --home-accent: #c82d28;
+}
+.academic-home ::selection {
+  background: rgba(200, 45, 40, 0.16);
+}
+
+/* The newest news item gets a small red dot hanging in the left margin. */
+.home-news-list > li {
+  position: relative;
+}
+.home-news-list > li.is-latest::before {
+  content: "";
+  position: absolute;
+  top: calc(24px + 0.62em);
+  left: -16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--home-accent);
+}
+
+/* Links draw their underline from left to right instead of snapping on. */
+.academic-home .home-nav a,
+.academic-home .home-text-link,
+.academic-home .home-contact a,
+.academic-home .home-footer a,
+.academic-home .writing-article h3 a,
+.academic-home .writing-tags a,
+.academic-home .writing-contents a,
+.academic-home .writing-archive-subgroup a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  background-origin: content-box;
+  background-clip: content-box;
+  transition: background-size 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.academic-home .home-nav a:hover,
+.academic-home .home-nav a[aria-current],
+.academic-home .home-text-link:hover,
+.academic-home .home-contact a:hover,
+.academic-home .home-footer a:hover,
+.academic-home .writing-article h3 a:hover,
+.academic-home .writing-tags a:hover,
+.academic-home .writing-contents a:hover,
+.academic-home .writing-archive-subgroup a:hover {
+  text-decoration: none;
+  background-size: 100% 1px;
+}
+
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes home-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-2.5deg);
+  }
+  65% {
+    transform: rotate(1.8deg);
+  }
+}
+@keyframes home-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The first screen settles in once, line by line. */
+  .home-introduction-copy > *,
+  .home-portrait,
+  .collection-introduction > *,
+  .writing-detail-introduction > * {
+    animation: home-rise 720ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .home-introduction-copy > :nth-child(2),
+  .collection-introduction > :nth-child(2),
+  .writing-detail-introduction > :nth-child(2) {
+    animation-delay: 70ms;
+  }
+  .home-introduction-copy > :nth-child(3),
+  .collection-introduction > :nth-child(3),
+  .writing-detail-introduction > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+  .home-introduction-copy > :nth-child(n + 4),
+  .writing-detail-introduction > :nth-child(n + 4) {
+    animation-delay: 210ms;
+  }
+  .home-portrait {
+    animation-delay: 160ms;
+  }
+
+  /* The avatar shifts its weight when hovered, pivoting on its feet. */
+  .home-portrait img {
+    transform-origin: 50% 100%;
+  }
+  .home-portrait:hover img {
+    animation: home-sway 900ms ease-in-out;
+  }
+
+  /* Sections fade up as they scroll into view, where the browser supports it. */
+  @supports (animation-timeline: view()) {
+    .academic-home .home-section,
+    .academic-home .writing-list > li {
+      animation: home-rise linear both;
+      animation-timeline: view();
+      /* Finish within the first 140px so nothing rests half-faded at the fold. */
+      animation-range: entry 0px entry 140px;
+    }
+  }
+}
+
+/* A thin red reading-progress line on articles. */
+@supports (animation-timeline: scroll()) {
+  .writing-detail-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    height: 2px;
+    background: var(--home-accent);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    animation: home-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+/* 404: the avatar stands beside a deadpan note about the missing page. */
+.not-found h1 {
+  max-width: 620px;
+  font-size: clamp(44px, 5.4vw, 66px);
+  letter-spacing: -2.2px;
+}
+.academic-home .not-found .home-position {
+  margin-top: 8px;
+}
+.academic-home .not-found .not-found-aside {
+  margin-top: 4px;
+  font-size: 16px;
+}
+.academic-home .not-found .not-found-return {
+  margin-top: 32px;
+}
+.not-found-figure {
+  display: block;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .not-found-figure {
+    height: 200px;
+    margin: 0;
+  }
+}
+
+/* Page changes cross-fade instead of cutting; the header stays put between pages.
+   Browsers without cross-document view transitions simply navigate as before. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  .home-header {
+    view-transition-name: site-header;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 340ms;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
 }
