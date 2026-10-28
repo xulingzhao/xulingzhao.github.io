@@ -7,8 +7,9 @@ introduction: >-
 focus: >-
   My research interests are optimization and diffusion language models.
 
-# Full-body avatar beside the introduction (2:3 frame, 240 × 360, stored at 2×).
-portrait: /assets/img/avatar.jpg
+# Full-body avatar with a transparent background, shown standing on the page
+# (400 px tall on desktop, stored at about 2×).
+portrait: /assets/img/avatar.webp
 
 # Newest first. `group` and `interest` are optional; `years` stays "Incoming" until a
 # start date is confirmed. Research interests live here, one per institution.

@@ -44,7 +44,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     </div>
     <figure class="home-portrait">
       {% if site.data.home.portrait %}
-        <img src="{{ site.data.home.portrait | relative_url }}" alt="Avatar of Xuling Zhao: a cartoon apple in a black suit" width="240" height="360" fetchpriority="high">
+        <img src="{{ site.data.home.portrait | relative_url }}" alt="Avatar of Xuling Zhao: a cartoon apple in a black suit" width="136" height="400" fetchpriority="high">
       {% else %}
         <div class="home-portrait-placeholder" role="img" aria-label="Portrait placeholder for Xuling Zhao"><span aria-hidden="true">XZ</span></div>
         <figcaption>Portrait forthcoming</figcaption>
@@ -97,7 +97,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     <ul class="home-news-list">
       {% assign news = site.data.home.news | sort: 'date' | reverse %}
       {% for item in news %}
-        <li>
+        <li{% if forloop.first %} class="is-latest"{% endif %}>
           <time class="home-news-date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: '%b %Y' }}</time>
           <p>{{ item.text }}</p>
         </li>
