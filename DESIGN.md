@@ -16,8 +16,11 @@
 - 白色背景、黑色文字与链接；使用浅灰分隔线及必要的浅灰底。**图片保持原始颜色，不做全站灰度处理。**
 - 唯一点缀色为头像的苹果红 `#c82d28`（CSS 变量 `--home-accent`），只用于非文字元素：最新一条 News 左侧留白中的小红点、文章页顶部 2px 阅读进度条、选中文字的浅红底。文字和链接仍为黑色，不扩大使用范围。
 - 动效克制：首屏内容加载时依次上浮淡入；下方区块滚动进入视口时淡入（支持 `animation-timeline` 的浏览器，前 140px 内完成，避免停在半透明）；链接下划线自左向右划出；悬停头像时以脚为轴轻摆。`prefers-reduced-motion` 时全部关闭。
+- 页面切换使用原生跨页 View Transitions 淡入淡出，页首 `.home-header` 命名为 `site-header` 保持不动；不支持的浏览器照常跳转。
+- 404 页沿用首页首屏排版，右侧站着头像，文案为黑帮梗：“This page has been taken care of. / It knew too much. Nobody has seen it since. / The boss is still at home, though.”
+- 当前 Fraunces 字体文件只含 `liga`、`rvrn` 特性，不支持老式数字（`onum`）；若要使用，需换成完整版 Fraunces，属于改动已确认字体，须用户同意。
 - 左上角标识为小写 **leo**，无句点；由 `_data/home.yml` 的 `wordmark` 控制。大标题和学术署名仍为 **Xuling Zhao**，不要自行改成 Leo Zhao。
-- 浏览器图标为苹果 emoji **🍎**。保留当前 favicon 设置。
+- 浏览器图标改用头像里戴帽子的苹果头（用户 2026-10-28 确认，替代原 🍎 emoji）：`assets/img/favicon.png`（96 × 96 透明）与 iPhone 主屏图标 `assets/img/apple-touch-icon.png`（180 × 180 白底），由 `_config.yml` 的 `icon` 与 `apple_touch_icon` 引用。下巴按头部圆弧裁去衣领。
 - 内容居中，当前容器最大宽度 1080px（含左右内边距）；以 `assets/css/home.css` 的实际实现为准。沿用已确认的标题比例、细分隔线与桌面/手机排版，不随意更换设计体系。
 - 首屏突出姓名，身份使用自然的一句英文，不再拆成生硬的身份与学校两行。避免重复的 “I am… I am… I will…” 或重复身份段落。
 - Email、GitHub、OpenReview 各占一行，并各自带标签；OpenReview 显示姓名而非带数字的 ID。CV 等用户做好 PDF 后再加。
@@ -105,6 +108,8 @@ bash bin/serve-local
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
 ## 当前进度与下一步
+
+2026-10-28（五）：加入页面切换淡入淡出、头像网站图标与 iPhone 主屏图标、404 黑帮幽默页。老式数字因字体不支持未实施。帘子动画方案已被用户彻底取消，不再提起。生产构建（含 PurgeCSS）与站点检查通过，桌面/手机已检查。
 
 2026-10-28（四）：视觉润色——头像抠图为透明全身像；加入苹果红点缀（News 红点、阅读进度条、选中色）；加入首屏上浮、滚动淡入、下划线划出与头像悬停轻摆，均尊重减少动态效果设置。生产构建（含 PurgeCSS）保留全部新规则，站点检查通过；首页、文章页及其他页面在桌面/手机检查无遮挡。阅读进度条与滚动淡入在不支持滚动驱动动画的浏览器（如当前 Firefox）中不显示，内容正常。
 

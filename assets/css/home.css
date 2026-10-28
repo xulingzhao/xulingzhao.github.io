@@ -1403,3 +1403,48 @@ body:has(.publications-page) {
     animation-timeline: scroll(root block);
   }
 }
+
+/* 404: the avatar stands beside a deadpan note about the missing page. */
+.not-found h1 {
+  max-width: 620px;
+  font-size: clamp(44px, 5.4vw, 66px);
+  letter-spacing: -2.2px;
+}
+.academic-home .not-found .home-position {
+  margin-top: 8px;
+}
+.academic-home .not-found .not-found-aside {
+  margin-top: 4px;
+  font-size: 16px;
+}
+.academic-home .not-found .not-found-return {
+  margin-top: 32px;
+}
+.not-found-figure {
+  display: block;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .not-found-figure {
+    height: 200px;
+    margin: 0;
+  }
+}
+
+/* Page changes cross-fade instead of cutting; the header stays put between pages.
+   Browsers without cross-document view transitions simply navigate as before. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  .home-header {
+    view-transition-name: site-header;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 340ms;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
