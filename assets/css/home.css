@@ -412,6 +412,23 @@ body:has(.academic-home) > .container[role="main"] {
   max-width: 700px;
   margin: 0 auto 48px !important;
 }
+/* giscus comments sit under the article at the prose width. */
+.writing-comments {
+  max-width: 700px;
+  margin: 0 auto 56px;
+  padding-top: 40px;
+  border-top: 1px solid #e5e5e5;
+}
+.academic-home .writing-comments h2 {
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+.writing-comments .giscus,
+.writing-comments .giscus-frame {
+  width: 100%;
+}
 .writing-detail-navigation {
   display: flex;
   justify-content: space-between;
