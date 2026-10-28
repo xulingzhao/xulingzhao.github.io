@@ -254,18 +254,19 @@ body:has(.academic-home) > .container[role="main"] {
 .home-education-entry .home-education-group {
   margin-top: 4px;
 }
+.home-education-entry .home-education-interest {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.home-education-interest span {
+  margin-right: 10px;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
 .home-education-entry .home-education-years {
   margin-top: 12px;
   font-size: 13px;
-}
-.home-interests {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-  font-size: 19px;
-}
-.home-interests li + li {
-  margin-top: 8px;
 }
 .home-award-list {
   list-style: none;
@@ -1057,12 +1058,15 @@ body:has(.publications-page) {
   .home-portrait {
     grid-row: 1;
   }
-  .home-portrait img,
   .home-portrait-placeholder {
     width: 76px;
     height: 90px;
     font-size: 30px;
     letter-spacing: -2px;
+  }
+  .home-portrait img {
+    width: 120px;
+    height: 143px;
   }
   .home-portrait figcaption {
     top: 34px;

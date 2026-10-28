@@ -2,7 +2,7 @@
 layout: default
 title: about
 permalink: /
-description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing University, exploring machine learning and diffusion language models.
+description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing University, interested in optimization and diffusion language models.
 ---
 
 <div class="academic-home">
@@ -38,28 +38,13 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     </div>
     <figure class="home-portrait">
       {% if site.data.home.portrait %}
-        <img src="{{ site.data.home.portrait | relative_url }}" alt="Portrait of Xuling Zhao" width="208" height="248" fetchpriority="high">
+        <img src="{{ site.data.home.portrait | relative_url }}" alt="Avatar of Xuling Zhao: a cartoon apple in a black suit" width="208" height="248" fetchpriority="high">
       {% else %}
         <div class="home-portrait-placeholder" role="img" aria-label="Portrait placeholder for Xuling Zhao"><span aria-hidden="true">XZ</span></div>
         <figcaption>Portrait forthcoming</figcaption>
       {% endif %}
     </figure>
   </section>
-
-{% if site.data.home.news.size > 0 %}
-  <section class="home-section home-news" aria-labelledby="home-news-title">
-    <div class="home-section-heading"><h2 id="home-news-title">News</h2></div>
-    <ul class="home-news-list">
-      {% assign news = site.data.home.news | sort: 'date' | reverse %}
-      {% for item in news %}
-        <li>
-          <time class="home-news-date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: '%b %Y' }}</time>
-          <p>{{ item.text }}</p>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
 
   <section class="home-section home-profile-section" aria-labelledby="home-education-title">
     <div class="home-section-heading"><h2 id="home-education-title">Education</h2></div>
@@ -70,6 +55,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
             <h3>{{ entry.institution }}</h3>
             <p>{{ entry.degree }}</p>
             {% if entry.group %}<p class="home-education-group">{{ entry.group }}</p>{% endif %}
+            {% if entry.interest %}<p class="home-education-interest"><span>Interest</span>{{ entry.interest }}</p>{% endif %}
             <p class="home-education-years">{{ entry.years }}</p>
           </div>
         {% endfor %}
@@ -77,17 +63,6 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
         <p>Details forthcoming.</p>
       {% endif %}
     </div>
-  </section>
-
-  <section class="home-section home-profile-section" aria-labelledby="home-interests-title">
-    <div class="home-section-heading"><h2 id="home-interests-title">Research interests</h2></div>
-      {% if site.data.home.research_interests.size > 0 %}
-        <ul class="home-interests">
-          {% for interest in site.data.home.research_interests %}<li>{{ interest }}</li>{% endfor %}
-        </ul>
-      {% else %}
-        <p>Details forthcoming.</p>
-      {% endif %}
   </section>
 
 {% if site.data.home.awards.size > 0 %}
@@ -104,6 +79,21 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
             <h3>{{ award.title }}{% if award.distinction %} · {{ award.distinction }}{% endif %}</h3>
             <p>{{ award.institution }}</p>
           </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+{% if site.data.home.news.size > 0 %}
+  <section class="home-section home-news" aria-labelledby="home-news-title">
+    <div class="home-section-heading"><h2 id="home-news-title">News</h2></div>
+    <ul class="home-news-list">
+      {% assign news = site.data.home.news | sort: 'date' | reverse %}
+      {% for item in news %}
+        <li>
+          <time class="home-news-date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: '%b %Y' }}</time>
+          <p>{{ item.text }}</p>
         </li>
       {% endfor %}
     </ul>

@@ -7,27 +7,27 @@ next_step: >-
   I will pursue a direct-entry PhD at the College of Computer Science and Technology,
   Zhejiang University.
 
-# Add your own image path, for example /assets/img/xuling-zhao.jpg.
-portrait:
+# Avatar shown beside the introduction (cropped to 208 × 248, stored at 2×).
+portrait: /assets/img/avatar.jpg
 
-# Newest first. `group` is optional; `years` stays "Incoming" until a start date is confirmed.
+# Newest first. `group` and `interest` are optional; `years` stays "Incoming" until a
+# start date is confirmed. Research interests live here, one per institution.
 education:
   - institution: Zhejiang University
     degree: Direct-entry PhD, College of Computer Science and Technology
+    group: PIL Lab
+    interest: Diffusion language models
     years: Incoming
   - institution: Nanjing University
     degree: Undergraduate in Artificial Intelligence
     group: LAMDA8 Group
+    interest: Optimization
     years: Sep. 2023 – Jun. 2027 (expected)
 
 # One entry per update. The homepage sorts by date, newest first, and shows the month and year.
 news:
   - date: 2026-09-01
     text: Admitted to the direct-entry PhD program at the College of Computer Science and Technology, Zhejiang University.
-
-research_interests:
-  - Machine learning
-  - Diffusion language models
 
 # Add one entry per award. The homepage sorts by year, newest first, with no item limit.
 # Add an optional distinction (e.g. First Class) only once confirmed.
