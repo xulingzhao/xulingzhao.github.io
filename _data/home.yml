@@ -3,11 +3,11 @@ native_name: 赵旭令
 wordmark: leo
 introduction: >-
   I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.
-next_step: >-
-  I will pursue a direct-entry PhD at the College of Computer Science and Technology,
-  Zhejiang University.
+# Second line of the introduction; admission details live in Education and News.
+focus: >-
+  My research interests are optimization and diffusion language models.
 
-# Avatar shown beside the introduction (cropped to 208 × 248, stored at 2×).
+# Full-body avatar beside the introduction (2:3 frame, 240 × 360, stored at 2×).
 portrait: /assets/img/avatar.jpg
 
 # Newest first. `group` and `interest` are optional; `years` stays "Incoming" until a

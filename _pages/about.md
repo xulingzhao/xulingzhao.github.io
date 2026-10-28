@@ -1,6 +1,6 @@
 ---
 layout: default
-title: about
+title: About
 permalink: /
 description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing University, interested in optimization and diffusion language models.
 ---
@@ -23,7 +23,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
       <h1 id="home-name">{{ site.first_name }} {{ site.last_name }}</h1>
       <p class="home-position">{{ site.data.home.introduction }}</p>
       <div class="home-biography">
-        <p>{{ site.data.home.next_step }}</p>
+        <p>{{ site.data.home.focus }}</p>
       </div>
       <dl class="home-contact" aria-label="Contact and profiles">
         <div>
@@ -34,11 +34,17 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
           <dt>GitHub</dt>
           <dd><a href="https://github.com/{{ site.data.socials.github_username }}">{{ site.data.socials.github_username }} <span aria-hidden="true">↗</span></a></dd>
         </div>
+        {% if site.data.socials.openreview_id %}
+        <div>
+          <dt>OpenReview</dt>
+          <dd><a href="https://openreview.net/profile?id={{ site.data.socials.openreview_id | url_encode }}">{{ site.first_name }} {{ site.last_name }} <span aria-hidden="true">↗</span></a></dd>
+        </div>
+        {% endif %}
       </dl>
     </div>
     <figure class="home-portrait">
       {% if site.data.home.portrait %}
-        <img src="{{ site.data.home.portrait | relative_url }}" alt="Avatar of Xuling Zhao: a cartoon apple in a black suit" width="208" height="248" fetchpriority="high">
+        <img src="{{ site.data.home.portrait | relative_url }}" alt="Avatar of Xuling Zhao: a cartoon apple in a black suit" width="240" height="360" fetchpriority="high">
       {% else %}
         <div class="home-portrait-placeholder" role="img" aria-label="Portrait placeholder for Xuling Zhao"><span aria-hidden="true">XZ</span></div>
         <figcaption>Portrait forthcoming</figcaption>

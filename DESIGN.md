@@ -18,13 +18,13 @@
 - 浏览器图标为苹果 emoji **🍎**。保留当前 favicon 设置。
 - 内容居中，当前容器最大宽度 1080px（含左右内边距）；以 `assets/css/home.css` 的实际实现为准。沿用已确认的标题比例、细分隔线与桌面/手机排版，不随意更换设计体系。
 - 首屏突出姓名，身份使用自然的一句英文，不再拆成生硬的身份与学校两行。避免重复的 “I am… I am… I will…” 或重复身份段落。
-- Email 与 GitHub 各占一行，并各自带标签。
+- Email、GitHub、OpenReview 各占一行，并各自带标签；OpenReview 显示姓名而非带数字的 ID。CV 等用户做好 PDF 后再加。
 - 首页各节保持单栏、标题在上：用户试看过“左标题右内容”的两栏排版，认为不协调，已撤回，不要再改成两栏。区块标题、学校、专业、日期有明确字号层级。
 - 不再设单独的 Research interests 区块：研究方向写在 Education 对应学校下，以小号大写 “INTEREST” 标签引出，不添加 “Currently exploring” 等多余说明。
 - Honors & Awards 保留独立、可扩展的完整区块，不因目前只有两条就缩成小角落。
 - 首页顺序：简介 → Education → Honors & Awards → News。News 与奖项共用“日期列 + 内容”网格（桌面 90px、手机 64px），两节正文左缘对齐；News 按日期倒序，显示月份与年份。
 - 首页暂不放 Publications / Projects / Writing 导引，避免喧宾夺主；等有几个代表项目后再考虑恢复。导航仍保留五项。
-- 头像使用用户提供的卡通形象（红苹果穿黑西装），文件 `assets/img/avatar.jpg`：按 208 × 248 比例裁去两侧背景，以 2 倍尺寸（416 × 496，约 30 KB）保存。手机端显示 120 × 143。它与 leo 页首标识用途不同；不要擅自生成或替换为他人照片。
+- 头像使用用户提供的卡通形象（红苹果穿黑西装），文件 `assets/img/avatar.jpg`：必须是全身像，不要裁成半身。头像框为 2:3 竖框，桌面 240 × 360、手机 120 × 180；图片按此比例裁去两侧空背景，以 2 倍尺寸（480 × 720，约 50 KB）保存。社交分享卡片另用正方形完整图 `assets/img/og-avatar.jpg`（600 × 600）。它与 leo 页首标识用途不同；不要擅自生成或替换为他人照片。
 
 ## 栏目结构与内容边界
 
@@ -55,11 +55,12 @@ Projects 分类是已经确定的内容约定，空栏目时不必显示分类�
 - 当前本科：南京大学人工智能学院。首页表述：**I’m an undergraduate at the School of Artificial Intelligence, Nanjing University.**
 - Education（新在前）：Zhejiang University；Direct-entry PhD, College of Computer Science and Technology；PIL Lab；Interest: Diffusion language models；Incoming。Nanjing University；Undergraduate in Artificial Intelligence；LAMDA8 Group（用户在 LAMDA 8 组做过工作）；Interest: Optimization；Sep. 2023 – Jun. 2027 (expected)。
 - News：Sep 2026，Admitted to the direct-entry PhD program at the College of Computer Science and Technology, Zhejiang University.（月份由用户确认）。
-- 后续去向：已确定赴浙江大学计算机学院攻读直博。首页表述：**I will pursue a direct-entry PhD at the College of Computer Science and Technology, Zhejiang University.** 未提供入学时间，Education 中显示 Incoming；不编造，也不写成已经在读。
+- 后续去向：已确定赴浙江大学计算机学院攻读直博。该信息由 Education 与 News 表达；首页简介第二句改为 **My research interests are optimization and diffusion language models.**，避免三处重复。未提供入学时间，Education 中显示 Incoming；不编造，也不写成已经在读。
 - 研究兴趣（用户 2026-10-28 确认）：Optimization 对应南大，Diffusion language models 对应浙大。不再使用 Machine learning 的笼统表述。
 - 奖项：2025、2024 年 People's Scholarship，Nanjing University；用户明确暂时不写等级。按年份倒序，可继续增加条目。
 - Email：xl.zhao2035@gmail.com。
 - GitHub：https://github.com/xulingzhao。
+- OpenReview：https://openreview.net/profile?id=~Xuling_Zhao1（`_data/socials.yml` 的 `openreview_id`）。尚无论文，暂无 Google Scholar。
 
 个人信息源（含 Education、News、奖项）在 `_data/home.yml`、`_data/socials.yml`；基本站点元信息在 `_config.yml`。优先更新数据，避免在多处硬编码同一信息。
 
@@ -102,6 +103,8 @@ bash bin/serve-local
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
 ## 当前进度与下一步
+
+2026-10-28（三）：开启社交分享卡片（`serve_og_meta`，默认图 `og-avatar.jpg`；首页 `title` 改为 `About`，分享标题为 “Xuling Zhao | About”）；联系方式加入 OpenReview；Writing 页 Articles 标题旁加入 RSS（`/feed.xml`）；简介第二句去重；头像框放大为 2:3 全身像。导航五项与 News 全量显示保持不变。
 
 2026-10-28（二）：首页顺序调整为 Education → Honors & Awards → News；删除 Research interests 区块，研究方向并入 Education；浙大加入 PIL Lab；换上用户提供的头像；首页与站点描述改为 optimization and diffusion language models。试过的两栏排版已撤回。本地预览的桌面/手机截图已检查。
 

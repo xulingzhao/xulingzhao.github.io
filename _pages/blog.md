@@ -62,7 +62,10 @@ pagination:
   <section class="writing-archive" aria-labelledby="articles-title">
     <div class="home-section-heading">
       <h2 id="articles-title">Articles</h2>
-      <a class="home-text-link" href="{{ '/blog/archive/' | relative_url }}">Browse the archive <span aria-hidden="true">↗</span></a>
+      <div class="writing-archive-links">
+        <a class="home-text-link" href="{{ '/blog/archive/' | relative_url }}">Browse the archive <span aria-hidden="true">↗</span></a>
+        <a class="home-text-link" href="{{ '/feed.xml' | relative_url }}" type="application/rss+xml">RSS <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
     {% if page.pagination.enabled %}
       {% assign postlist = paginator.posts %}
