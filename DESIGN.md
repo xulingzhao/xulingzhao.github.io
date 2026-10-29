@@ -19,7 +19,7 @@
 - 页面切换使用原生跨页 View Transitions 淡入淡出，页首 `.home-header` 命名为 `site-header` 保持不动；不支持的浏览器照常跳转。
 - 404 页沿用首页首屏排版，右侧站着头像，文案为黑帮梗：“This page has been taken care of. / It knew too much. Nobody has seen it since. / The boss is still at home, though.”
 - 当前 Fraunces 字体文件只含 `liga`、`rvrn` 特性，不支持老式数字（`onum`）；若要使用，需换成完整版 Fraunces，属于改动已确认字体，须用户同意。
-- 左上角标识为小写 **leo**，无句点；由 `_data/home.yml` 的 `wordmark` 控制。大标题和学术署名仍为 **Xuling Zhao**，不要自行改成 Leo Zhao。
+- 左上角标识是头像的头和帽子小图（与网站图标同一张 `assets/img/favicon.png`），桌面 40px、手机 34px，悬停时轻轻摇一下；已不再显示文字 **leo**，各页面页首直接写这张图片。大标题和学术署名仍为 **Xuling Zhao**，不要自行改成 Leo Zhao。
 - 浏览器图标改用头像里戴帽子的苹果头（用户 2026-10-28 确认，替代原 🍎 emoji）：`assets/img/favicon.png`（96 × 96 透明）与 iPhone 主屏图标 `assets/img/apple-touch-icon.png`（180 × 180 白底），由 `_config.yml` 的 `icon` 与 `apple_touch_icon` 引用。下巴按头部圆弧裁去衣领。
 - 内容居中，当前容器最大宽度 1080px（含左右内边距）；以 `assets/css/home.css` 的实际实现为准。沿用已确认的标题比例、细分隔线与桌面/手机排版，不随意更换设计体系。
 - 首屏突出姓名，身份使用自然的一句英文，不再拆成生硬的身份与学校两行。避免重复的 “I am… I am… I will…” 或重复身份段落。
@@ -29,7 +29,7 @@
 - Honors & Awards 保留独立、可扩展的完整区块，不因目前只有两条就缩成小角落。
 - 首页顺序：简介 → Education → Honors & Awards → News。News 与奖项共用“日期列 + 内容”网格（桌面 90px、手机 64px），两节正文左缘对齐；News 按日期倒序，显示月份与年份。
 - 首页暂不放 Publications / Projects / Writing 导引，避免喧宾夺主；等有几个代表项目后再考虑恢复。导航仍保留五项。
-- 头像使用用户提供的卡通形象（红苹果穿黑西装），必须是全身像，不要裁成半身。已去除灰色背景，文件为透明 WebP `assets/img/avatar.webp`（286 × 840，约 26 KB），直接站在白底上，不加框；桌面高 400px、手机高 200px。原图背景色 `#6b625c`。社交分享卡片另用正方形完整图 `assets/img/og-avatar.jpg`（600 × 600）。它与 leo 页首标识用途不同；不要擅自生成或替换为他人照片。
+- 头像使用用户提供的卡通形象（红苹果穿黑西装），必须是全身像，不要裁成半身。已去除灰色背景，文件为透明 WebP `assets/img/avatar.webp`（286 × 840，约 26 KB），直接站在白底上，不加框；桌面高 400px、手机高 200px。原图背景色 `#6b625c`。社交分享卡片另用正方形完整图 `assets/img/og-avatar.jpg`（600 × 600）。它与页首的小头像标识用途不同；不要擅自生成或替换为他人照片。
 
 ## 栏目结构与内容边界
 

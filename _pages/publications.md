@@ -13,7 +13,7 @@ nav_order: 2
 <div class="academic-home publications-page">
   <a class="home-skip" href="#publications-content">Skip to content</a>
   <header class="home-header">
-    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home">{{ site.data.home.wordmark }}</a>
+    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home"><img src="{{ '/assets/img/favicon.png' | relative_url }}" alt="" width="40" height="40"></a>
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}" aria-current="page">Publications</a>

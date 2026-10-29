@@ -51,7 +51,7 @@ The useful lesson in this example is that a project with a defined client or com
 <div class="academic-home project-detail-page">
   <a class="home-skip" href="#project-content">Skip to content</a>
   <header class="home-header">
-    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home">{{ site.data.home.wordmark }}</a>
+    <a class="home-wordmark" href="{{ '/' | relative_url }}" aria-label="Leo (Xuling Zhao), home"><img src="{{ '/assets/img/favicon.png' | relative_url }}" alt="" width="40" height="40"></a>
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
