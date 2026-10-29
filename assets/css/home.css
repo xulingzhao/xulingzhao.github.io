@@ -92,12 +92,14 @@ body:has(.academic-home) > .container[role="main"] {
   gap: 24px;
   border-bottom: 1px solid #e5e5e5;
 }
+/* The mark is the avatar's head and hat, the same image as the favicon. */
 .home-wordmark {
-  font-family: "Fraunces Home", "LXGW WenKai", Georgia, serif;
-  font-size: 34px;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: -2px;
+  display: inline-flex;
+  line-height: 0;
+}
+.home-wordmark img {
+  width: 40px;
+  height: 40px;
 }
 .home-nav {
   display: flex;
@@ -668,8 +670,9 @@ body:has(.publications-page) {
     gap: 18px;
     font-size: 12px;
   }
-  .home-wordmark {
-    font-size: 28px;
+  .home-wordmark img {
+    width: 34px;
+    height: 34px;
   }
   .home-introduction {
     grid-template-columns: 1fr;
@@ -948,6 +951,12 @@ body:has(.publications-page) {
     transform-origin: 50% 100%;
   }
   .home-portrait:hover img {
+    animation: home-sway 900ms ease-in-out;
+  }
+  .home-wordmark img {
+    transform-origin: 50% 90%;
+  }
+  .home-wordmark:hover img {
     animation: home-sway 900ms ease-in-out;
   }
 
