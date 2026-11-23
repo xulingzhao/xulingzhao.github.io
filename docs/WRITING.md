@@ -10,7 +10,7 @@
 - `docs/site-reference/writing/2026-10-13-room-for-unfinished-ideas.md`：个人思考示例，包含段落、小标题、列表和引言。
 - `assets/css/home.css`：Writing 列表、归档、文章详情，以及其他个人页面的共同样式。它由 `assets/css/main.scss` 内联进 `<head>` 中的 `main.css`；新页面不要再写 `home.css` 的 `<link>`（site-reference 源码里的这一行是旧写法，复制时删掉）。
 
-两篇文章都明确标为虚构示例，不代表真实经历或已完成工作。它们使用与首页一致的五项导航。
+两篇文章都明确标为虚构示例，不代表真实经历或已完成工作。归档示例保留了当时的导航。
 当前首篇真实文章为《理解 KL 散度》（2026-10-15），源文件 `_posts/2026-10-15-understanding-kl-divergence.md`。两个虚构示例仅作参考，不生成网页；添加第六篇真实文章后，列表会生成下一页。总约定见 [DESIGN.md](../DESIGN.md)。
 两篇均设置 `featured: false`，避免在很短的列表里重复展示；以后可把希望置顶的文章改为 `true`。
 
@@ -48,7 +48,7 @@
 1. 从 `docs/site-reference/writing/` 复制最接近的参考文章到 `_posts/`，文件名使用 `YYYY-MM-DD-english-slug.md`。
 2. 修改最上方两个 `---` 之间的配置。
 3. 正文放在 `{% capture article_body %}` 和 `{% endcapture %}` 之间，支持 Markdown。
-4. 保留后面的样式链接、页面外层、五项导航、正文渲染和页脚。
+4. 保留页面外层、正文渲染和页脚，从当前 Writing 详情页复制页首导航。
 5. 本地打开 Writing → 文章 → 标签归档 → 返回 Writing，确认整条路径正常。
 
 配置示例：

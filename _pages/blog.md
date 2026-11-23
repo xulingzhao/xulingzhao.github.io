@@ -4,7 +4,7 @@ permalink: /blog/
 title: Writing
 description: Technical articles and personal reflections by Xuling Zhao.
 nav: true
-nav_order: 1
+nav_order: 5
 pagination:
   enabled: true
   collection: posts
@@ -24,6 +24,7 @@ pagination:
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}">Projects</a>
       <a href="{{ '/blog/' | relative_url }}" aria-current="page">Writing</a>
       <a href="{{ '/notes/' | relative_url }}">Notes</a>

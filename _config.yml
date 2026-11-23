@@ -190,6 +190,9 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
+  explorations:
+    output: false # Entries are read in full on /exploration/.
+    permalink: "/exploration/#idea-:slug"
   projects:
     output: true
 

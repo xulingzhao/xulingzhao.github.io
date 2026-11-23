@@ -12,6 +12,7 @@ description: Browse writing by year, topic, and category.
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}">Projects</a>
       <a href="{{ '/blog/' | relative_url }}" aria-current="true">Writing</a>
       <a href="{{ '/notes/' | relative_url }}">Notes</a>

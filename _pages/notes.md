@@ -4,7 +4,7 @@ title: Notes
 permalink: /notes/
 description: Course notes, reading notes, and ideas in progress by Xuling Zhao.
 nav: true
-nav_order: 4
+nav_order: 6
 ---
 
 <div class="academic-home">
@@ -14,6 +14,7 @@ nav_order: 4
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}">Projects</a>
       <a href="{{ '/blog/' | relative_url }}">Writing</a>
       <a href="{{ '/notes/' | relative_url }}" aria-current="page">Notes</a>

@@ -1,6 +1,6 @@
 # Xuling Zhao / leo — 网站设计与维护约定
 
-最后更新：2026-10-28。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站界面和个人介绍保持英文，博客允许中文及中英文混排；维护文档与协作沟通可用中文。
+最后更新：2026-11-23。本文记录用户已确认的选择和当前实际进度，是本个人网站后续工作的第一阅读入口。网站界面和个人介绍保持英文，博客与 Exploration 条目允许中文及中英文混排。维护文档与协作沟通可用中文。
 
 ## 接手时先做什么
 
@@ -28,17 +28,18 @@
 - 不再设单独的 Research interests 区块：研究方向写在 Education 对应学校下，以小号大写 “INTEREST” 标签引出，不添加 “Currently exploring” 等多余说明。
 - Honors & Awards 保留独立、可扩展的完整区块，不因目前只有两条就缩成小角落。
 - 首页顺序：简介 → Education → Honors & Awards → News。News 与奖项共用“日期列 + 内容”网格（桌面 90px、手机 64px），两节正文左缘对齐；News 按日期倒序，显示月份与年份。
-- 首页暂不放 Publications / Projects / Writing 导引，避免喧宾夺主；等有几个代表项目后再考虑恢复。导航仍保留五项。
+- 首页各研究与写作栏目通过页首导航进入。等有几个代表项目后再考虑恢复首页导引。
 - 头像使用用户提供的卡通形象（红苹果穿黑西装），必须是全身像，不要裁成半身。已去除灰色背景，文件为透明 WebP `assets/img/avatar.webp`（286 × 840，约 26 KB），直接站在白底上，不加框；桌面高 400px、手机高 200px。原图背景色 `#6b625c`。社交分享卡片另用正方形完整图 `assets/img/og-avatar.jpg`（600 × 600）。它与页首的小头像标识用途不同；不要擅自生成或替换为他人照片。
 
 ## 栏目结构与内容边界
 
-始终使用五项导航，顺序为 **About / Publications / Projects / Writing / Notes**。列表、详情、标签和归档页保持同一字体、导航与视觉风格；不要让点击详情后恢复旧模板的 CV、Teaching 等导航。
+全站导航顺序为 **About / Publications / Exploration / Projects / Writing / Notes**。列表、详情、标签和归档页保持同一字体、导航与视觉风格。
 
 | 栏目         | 地址             | 内容与当前状态                                                                                                |
 | ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------- |
 | About        | `/`              | 已填写简介、头像、教育（含研究方向）、奖项、News、联系方式；暂不放论文、项目和 Writing 导引（通过导航进入）。 |
 | Publications | `/publications/` | 当前没有论文，显示 “No publications yet.”；没有论文时隐藏搜索框。                                             |
+| Exploration  | `/exploration/`  | 介绍为 “detours and rediscoveries”，按三种状态记录研究想法。                                                  |
 | Projects     | `/projects/`     | 当前没有可展示的真实项目，显示 “No projects yet.”；未来沿用 Applied / Personal 分类与图文详情。               |
 | Writing      | `/blog/`         | 已有《理解 KL 散度》（2026-10-15）；收录技术文章和个人想法。                                                  |
 | Notes        | `/notes/`        | 当前没有笔记，显示 “No notes yet.”；未来收录课程、阅读和学习笔记。                                            |
@@ -74,7 +75,8 @@ Projects 分类是已经确定的内容约定，空栏目时不必显示分类�
 | 用途                          | 入口                                                                                                            |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | 所有个人页面的样式            | `assets/css/home.css`，由 `assets/css/main.scss` 内联进 `<head>`；页面不要再单独引用                            |
-| 五个主页面                    | `_pages/about.md`、`publications.md`、`projects.md`、`blog.md`、`notes.md`                                      |
+| 六个主页面                    | `_pages/about.md`、`publications.md`、`exploration.md`、`projects.md`、`blog.md`、`notes.md`                    |
+| Exploration 条目              | `_explorations/`，每个想法一个 Markdown 文件。[添加条目](docs/README.md#exploration)                            |
 | 个人论文                      | `_bibliography/publications.bib`，目前为空；[论文维护指南](docs/PUBLICATIONS.md)                                |
 | 论文模板/引用参考             | `docs/publication-examples/papers.bib`，仅供字段参考，不参与构建                                                |
 | 未来真实项目                  | `_projects/`；[项目维护指南](docs/PROJECTS.md)                                                                  |
@@ -108,6 +110,8 @@ bash bin/serve-local
 `DESIGN.md` 和 `docs/` 均排除在网站构建之外。`AGENTS.md` 已指向本文；新增个人设计决策写在这里，不把本站偏好混进上游通用架构说明。运行时组件归属、覆写限制与插件配置仍遵循 `AGENTS.md` 和架构文档。
 
 ## 当前进度与下一步
+
+2026-11-23：在 Publications 后加入 Exploration。页面使用现有字体、分隔线和单栏排版。三种状态各有简短说明，真实条目可按标题就地展开。已验证本地与生产构建的 9 个页面、桌面与手机导航，并用临时条目检查了分组、论文链接与键盘展开。
 
 2026-10-28（六）：Writing 文章加入 giscus 评论（Discussions → Comments 分类），位于标签与 “All writing” 之间，宽度同正文；线上使用本站配套主题 `assets/giscus/theme.css`，中文文章评论界面为中文。新文章的接入方法见 [Writing 维护指南](docs/WRITING.md#评论giscus)。本地评论加载、生产构建与站点检查已验证；配套主题需上线后再在真实页面确认一次。
 

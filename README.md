@@ -12,6 +12,7 @@ It is built with al-folio v1 and Jekyll, with its runtime supplied by pinned Rub
 
 - **About** — biography, education, research interests, awards, and contact details.
 - **Publications** — reserved for my publications; currently empty.
+- **Exploration** — detours and rediscoveries, grouped by Set Aside, Open Question, and Rediscovery.
 - **Projects** — future Applied and Personal projects; currently empty.
 - **Writing** — technical articles and personal reflections, starting with “理解 KL 散度” (October 15, 2026).
 - **Notes** — course, reading, and study notes; currently empty.
@@ -42,6 +43,7 @@ Agent instructions are in [AGENTS.md](AGENTS.md).
 | `_pages/`                               | Main pages, Writing archive, and the styled 404 page                   |
 | `assets/css/home.css`, `assets/fonts/`  | Shared personal styling and the licensed font                          |
 | `_bibliography/publications.bib`        | My publications, currently empty                                       |
+| `_explorations/`                        | Markdown research entries, grouped by status on the Exploration page   |
 | `_projects/`, `_posts/`                 | Create these directories when adding real projects or articles         |
 | `docs/`                                 | Maintenance guides and source-only examples; excluded from the website |
 | `test/site-routes.json`                 | Explicit list of approved public HTML routes                           |

@@ -17,6 +17,7 @@ nav_order: 2
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}" aria-current="page">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}">Projects</a>
       <a href="{{ '/blog/' | relative_url }}">Writing</a>
       <a href="{{ '/notes/' | relative_url }}">Notes</a>

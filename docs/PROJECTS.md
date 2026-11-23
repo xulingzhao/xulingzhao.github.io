@@ -50,7 +50,7 @@
 1. 从 `docs/site-reference/projects/` 复制最接近的案例到 `_projects/`（目录不存在时先创建），例如复制为 `_projects/my-project.md`。
 2. 修改文件最上方两个 `---` 之间的配置，并修改正文。
 3. 把项目图片放进 `assets/img/projects/`，更新图片路径和说明。
-4. 保留样式链接、`.academic-home` 外层、导航和页脚，这样点击进入后仍沿用首页风格。
+4. 保留 `.academic-home` 外层和页脚，从当前 Projects 页复制页首导航，并将详情页上 Projects 链接的 `aria-current` 设为 `true`。
 5. 在本地检查列表 → 详情 → 返回列表的完整路径，并把窗口缩窄检查手机布局。
 
 最常用的配置：

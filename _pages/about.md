@@ -12,6 +12,7 @@ description: Xuling Zhao, an Artificial Intelligence undergraduate at Nanjing Un
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}" aria-current="page">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}">Projects</a>
       <a href="{{ '/blog/' | relative_url }}">Writing</a>
       <a href="{{ '/notes/' | relative_url }}">Notes</a>

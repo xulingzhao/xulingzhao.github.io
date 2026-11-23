@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 description: Projects and explorations by Xuling Zhao.
 nav: true
-nav_order: 3
+nav_order: 4
 display_categories: [applied, personal]
 ---
 
@@ -15,6 +15,7 @@ display_categories: [applied, personal]
     <nav class="home-nav" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}">About</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/exploration/' | relative_url }}">Exploration</a>
       <a href="{{ '/projects/' | relative_url }}" aria-current="page">Projects</a>
       <a href="{{ '/blog/' | relative_url }}">Writing</a>
       <a href="{{ '/notes/' | relative_url }}">Notes</a>
