@@ -103,6 +103,7 @@ body:has(.academic-home) > .container[role="main"] {
 }
 .home-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   align-items: center;
   font-size: 13px;
@@ -619,6 +620,28 @@ body:has(.academic-home) > .container[role="main"] {
 }
 
 /* Project archive shares the homepage's image cards and spacing. */
+.projects-category {
+  padding-top: 28px;
+  border-top: 1px solid #e5e5e5;
+}
+.projects-category > h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+.projects-category .projects-category-description {
+  margin-top: 12px;
+  max-width: 640px;
+  font-size: 14px;
+}
+.projects-category > h2 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.exploration-group {
+  padding-bottom: 28px;
+}
 
 /* Full publication archive; reuse the homepage's bibliography components. */
 body:has(.publications-page) {
@@ -667,7 +690,7 @@ body:has(.publications-page) {
     gap: 20px;
   }
   .home-nav {
-    gap: 18px;
+    gap: 0 clamp(8px, 2.5vw, 18px);
     font-size: 12px;
   }
   .home-wordmark img {
@@ -729,13 +752,19 @@ body:has(.publications-page) {
   .home-nav {
     width: 100%;
     justify-content: space-between;
-    gap: 8px;
+    gap: 0 8px;
     font-size: 12px;
   }
   .home-section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+  }
+}
+@media (max-width: 370px) {
+  .home-nav {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
   }
 }
 
